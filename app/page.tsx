@@ -50,7 +50,7 @@ const renderNavigation = () => (
         <div className="hidden md:flex items-center space-x-8">
           {[
             { id: 'home', label: 'Home' },
-            { id: 'rsvp', label: 'RSVP' },
+
             { id: 'registry', label: 'Registry' },
             { id: 'dresscode', label: 'Dress Code' }
           ].map(item => (
