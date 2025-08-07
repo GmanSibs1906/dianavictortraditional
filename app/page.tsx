@@ -184,7 +184,7 @@ const renderHome = () => (
         <div className="relative group corner-image-animation" style={{animationDelay: '1s'}}>
           <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32 lg:w-36 lg:h-36 transform rotate-6 hover:-rotate-12 transition-all duration-700 hover:scale-110 corner-image-frame">
             <Image
-              src="/images/image3.JPG"
+              src="/images/image15.JPG"
               alt="Wedding moment 3"
               fill
               className="object-cover rounded-2xl shadow-2xl border-3 md:border-4 border-[#f8f5f0] group-hover:border-[#3d6852] transition-all duration-500"
@@ -338,7 +338,7 @@ const renderHome = () => (
               </span>
               <span className="text-[#d4a574] text-4xl md:text-5xl font-light">•</span>
               <span className="african-glass px-6 py-3 rounded-2xl border-2 border-[#c4403e] african-text-shadow">
-                Dot Celebration
+                La Dot
               </span>
             </div>
             <p className="text-lg md:text-xl font-medium text-[#2a4b39] african-text-shadow">
@@ -498,7 +498,8 @@ In the years that followed, they became friends. The kind of friends who laugh e
                 <div className="flex items-start space-x-4">
                   <Calendar className="h-8 w-8 text-[var(--african-red)] mt-1 flex-shrink-0" />
                 <div>
-                    <p className="font-bold text-[var(--african-green-dark)] text-xl">Casa Social De Madeira</p>
+                    {/* <p className="font-bold text-[var(--african-green-dark)] text-xl">Casa Social De Madeira</p> */}
+                    <a href="https://maps.app.goo.gl/ycymZbvMzYfXh5FBA" className="font-semibold text-[#c4403e] hover:text-amber-600 transition-colors">Casa Social De Madeira</a>
                     <p className="text-[var(--african-green-dark)] font-medium text-lg">34 Boschkop Rd, Zwavelpoort</p>
                     <p className="text-base text-[var(--african-green)] italic mt-2">A beautiful ceremony surrounded by family and friends</p>
               </div>

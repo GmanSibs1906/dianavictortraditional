@@ -5,6 +5,10 @@
 
 /* African Textile Inspired Color Palette */
 :root {
+  /* Font configuration */
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+  
   /* Primary Colors from the textile */
   --african-green: #3d6852;  /* Rich forest green */
   --african-green-light: #5a8268;  /* Lighter green */
@@ -49,6 +53,15 @@
   --sidebar-accent-foreground: #1a1a1a;
   --sidebar-border: #d4cfc7;
   --sidebar-ring: var(--african-green);
+}
+
+/* Base font styles */
+html {
+  font-family: var(--font-sans);
+}
+
+body {
+  font-family: var(--font-sans);
 }
 
 .dark {
