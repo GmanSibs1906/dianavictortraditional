@@ -6,11 +6,12 @@ import { Button } from '../components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card'
 import { Badge } from '../components/ui/badge'
 
-import { Heart, MapPin, Calendar, Clock, Gift, Users, Sparkles, Camera, Music } from 'lucide-react'
+import { Heart, MapPin, Calendar, Clock, Gift, Users, Sparkles, Camera, Music, Menu, X } from 'lucide-react'
 import { AfricanTextileOverlay, AfricanCornerDecoration } from '../components/african-patterns'
 
 export default function WeddingWebsite() {
 const [activeSection, setActiveSection] = useState('home')
+const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
 
 
@@ -49,18 +50,80 @@ const renderNavigation = () => (
           </Button>
         </div>
         <div className="md:hidden">
-          <select 
-            value={activeSection} 
-            onChange={(e) => setActiveSection(e.target.value)}
-            className="text-sm border-2 border-[#3d6852] rounded-lg px-3 py-2 african-glass"
+          <Button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="p-2 african-glass border-2 border-[#3d6852] hover:border-[#c4403e] transition-all duration-300"
+            size="sm"
           >
-            <option value="home">Home</option>
-            <option value="registry">Registry</option>
-            <option value="dresscode">Dress Code</option>
-          </select>
+            {isMobileMenuOpen ? (
+              <X className="h-5 w-5 text-[#2a4b39]" />
+            ) : (
+              <Menu className="h-5 w-5 text-[#2a4b39]" />
+            )}
+          </Button>
         </div>
       </div>
     </div>
+    
+    {/* Mobile Menu Overlay */}
+    {isMobileMenuOpen && (
+      <div 
+        className="md:hidden fixed inset-0 top-16 bg-black/50 backdrop-blur-sm z-40 mobile-menu-enter"
+        onClick={() => setIsMobileMenuOpen(false)}
+      >
+        <div 
+          className="african-glass border-t african-border-pattern bg-[#f8f5f0]/95 backdrop-blur-md shadow-2xl"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="container mx-auto px-4 py-6">
+            <div className="space-y-3">
+              {[
+                { id: 'home', label: 'Home', icon: Heart },
+                { id: 'registry', label: 'Registry', icon: Gift },
+                { id: 'dresscode', label: 'Dress Code', icon: Sparkles }
+              ].map((item, index) => {
+                const IconComponent = item.icon
+                return (
+                  <button
+                    key={item.id}
+                    onClick={() => {
+                      setActiveSection(item.id)
+                      setIsMobileMenuOpen(false)
+                    }}
+                    className={`mobile-menu-item w-full flex items-center space-x-4 p-4 rounded-xl text-left transition-all duration-300 border-2 ${
+                      activeSection === item.id 
+                        ? 'african-gradient-red text-white shadow-lg transform scale-105 border-[#d4a574]' 
+                        : 'african-glass hover:african-gradient-green hover:text-white text-[#2a4b39] hover:shadow-md hover:scale-102 border-transparent hover:border-[#d4a574]'
+                    }`}
+                  >
+                    <div className={`p-2 rounded-lg ${activeSection === item.id ? 'bg-white/20' : 'bg-[#3d6852]/10'}`}>
+                      <IconComponent className="h-5 w-5" />
+                    </div>
+                    <span className="font-medium text-lg">{item.label}</span>
+                  </button>
+                )
+              })}
+              
+              {/* Mobile RSVP Button */}
+              <div className="pt-4 border-t border-[#d4a574]/30">
+                <Button
+                  onClick={() => {
+                    window.open('https://tally.so/r/nPqb7V', '_blank')
+                    setIsMobileMenuOpen(false)
+                  }}
+                  className="mobile-menu-item w-full african-gradient-red hover:african-gradient-green text-white py-4 text-lg font-medium rounded-xl transform hover:scale-105 transition-all duration-300 african-text-shadow border-2 border-[#d4a574] shadow-lg"
+                >
+                  <div className="flex items-center justify-center space-x-2">
+                    <Heart className="h-5 w-5" />
+                    <span>RSVP Now</span>
+                  </div>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )}
   </nav>
 )
 
