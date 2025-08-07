@@ -1,90 +1,341 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@custom-variant dark (&:is(.dark *));
+
+/* African Textile Inspired Color Palette */
+:root {
+  /* Primary Colors from the textile */
+  --african-green: #3d6852;  /* Rich forest green */
+  --african-green-light: #5a8268;  /* Lighter green */
+  --african-green-dark: #2a4b39;   /* Darker green */
+  --african-red: #c4403e;     /* Deep crimson red */
+  --african-red-light: #d66058;     /* Lighter red */
+  --african-red-dark: #a22b2a;      /* Darker red */
+  --african-cream: #f8f5f0;   /* Warm cream */
+  --african-gold: #d4a574;    /* Golden accent */
+  
+  /* Updated design system */
+  --background: var(--african-cream);
+  --foreground: #1a1a1a;
+  --card: #fcfaf8;
+  --card-foreground: #1a1a1a;
+  --popover: #fcfaf8;
+  --popover-foreground: #1a1a1a;
+  --primary: var(--african-green);
+  --primary-foreground: var(--african-cream);
+  --secondary: var(--african-red);
+  --secondary-foreground: var(--african-cream);
+  --muted: #f0ede8;
+  --muted-foreground: #666666;
+  --accent: var(--african-gold);
+  --accent-foreground: #1a1a1a;
+  --destructive: #dc2626;
+  --destructive-foreground: var(--african-cream);
+  --border: #d4cfc7;
+  --input: #f8f5f0;
+  --ring: var(--african-green);
+  --chart-1: var(--african-green);
+  --chart-2: var(--african-red);
+  --chart-3: var(--african-gold);
+  --chart-4: var(--african-green-light);
+  --chart-5: var(--african-red-light);
+  --radius: 0.75rem;
+  --sidebar: var(--african-cream);
+  --sidebar-foreground: #1a1a1a;
+  --sidebar-primary: var(--african-green);
+  --sidebar-primary-foreground: var(--african-cream);
+  --sidebar-accent: #f0ede8;
+  --sidebar-accent-foreground: #1a1a1a;
+  --sidebar-border: #d4cfc7;
+  --sidebar-ring: var(--african-green);
+}
+
+.dark {
+  --background: #1a2821;
+  --foreground: var(--african-cream);
+  --card: #1f2d26;
+  --card-foreground: var(--african-cream);
+  --popover: #1f2d26;
+  --popover-foreground: var(--african-cream);
+  --primary: var(--african-green-light);
+  --primary-foreground: #1a2821;
+  --secondary: var(--african-red-light);
+  --secondary-foreground: #1a2821;
+  --muted: #243331;
+  --muted-foreground: #a8a8a8;
+  --accent: var(--african-gold);
+  --accent-foreground: #1a2821;
+  --destructive: #ef4444;
+  --destructive-foreground: var(--african-cream);
+  --border: #243331;
+  --input: #243331;
+  --ring: var(--african-green-light);
+  --chart-1: var(--african-green-light);
+  --chart-2: var(--african-red-light);
+  --chart-3: var(--african-gold);
+  --chart-4: var(--african-green);
+  --chart-5: var(--african-red);
+  --sidebar: #1f2d26;
+  --sidebar-foreground: var(--african-cream);
+  --sidebar-primary: var(--african-green-light);
+  --sidebar-primary-foreground: #1a2821;
+  --sidebar-accent: #243331;
+  --sidebar-accent-foreground: var(--african-cream);
+  --sidebar-border: #243331;
+  --sidebar-ring: var(--african-green-light);
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* African Textile Pattern Backgrounds */
+.african-pattern-green {
+  background-image: 
+    radial-gradient(circle at 25% 25%, var(--african-green-light) 2px, transparent 2px),
+    radial-gradient(circle at 75% 75%, var(--african-green-dark) 1px, transparent 1px),
+    linear-gradient(45deg, var(--african-green) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--african-green) 25%, transparent 25%);
+  background-size: 30px 30px, 20px 20px, 40px 40px, 40px 40px;
+  background-position: 0 0, 10px 10px, 0 0, 20px 20px;
+}
+
+.african-pattern-red {
+  background-image: 
+    radial-gradient(ellipse at center, var(--african-red-light) 30%, transparent 30%),
+    radial-gradient(ellipse at 50% 50%, var(--african-red-dark) 20%, transparent 20%);
+  background-size: 60px 40px, 80px 60px;
+  background-position: 0 0, 30px 20px;
+}
+
+.african-gradient-green {
+  background: linear-gradient(135deg, 
+    var(--african-green-light) 0%, 
+    var(--african-green) 50%, 
+    var(--african-green-dark) 100%);
+}
+
+.african-gradient-red {
+  background: linear-gradient(135deg, 
+    var(--african-red-light) 0%, 
+    var(--african-red) 50%, 
+    var(--african-red-dark) 100%);
+}
+
+.african-gradient-warm {
+  background: linear-gradient(135deg, 
+    var(--african-cream) 0%, 
+    var(--african-gold) 50%, 
+    var(--african-red-light) 100%);
+}
+
+/* Floating Animation for African Elements */
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+@keyframes float-pattern {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-5px) scale(1.02); }
+}
+
+@keyframes corner-image-float {
+  0%, 100% { 
+    transform: translateY(0px) scale(1);
+  }
+  50% { 
+    transform: translateY(-8px) scale(1.05);
   }
 }
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+@keyframes corner-image-glow {
+  0%, 100% { 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
   }
-  .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+  50% { 
+    box-shadow: 0 15px 35px rgba(196, 64, 62, 0.3), 0 0 20px rgba(212, 165, 116, 0.2);
   }
+}
+
+@keyframes corner-sparkle {
+  0%, 100% { 
+    transform: scale(1) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: scale(1.2) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+@keyframes gallery-drift {
+  0%, 100% { 
+    transform: translateX(0px) translateY(0px) scale(1);
+  }
+  25% { 
+    transform: translateX(3px) translateY(-2px) scale(1.02);
+  }
+  50% { 
+    transform: translateX(-2px) translateY(-4px) scale(1.05);
+  }
+  75% { 
+    transform: translateX(2px) translateY(-1px) scale(1.02);
+  }
+}
+
+@keyframes subtle-glow {
+  0%, 100% { 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  50% { 
+    box-shadow: 0 8px 25px rgba(196, 64, 62, 0.2), 0 0 15px rgba(212, 165, 116, 0.15);
+  }
+}
+
+.float-animation {
+  animation: float-gentle 6s ease-in-out infinite;
+}
+
+.pattern-animation {
+  animation: float-pattern 8s ease-in-out infinite;
+}
+
+.corner-image-animation {
+  animation: corner-image-float 4s ease-in-out infinite, corner-image-glow 3s ease-in-out infinite;
+}
+
+.gallery-drift-animation {
+  animation: gallery-drift 6s ease-in-out infinite, subtle-glow 4s ease-in-out infinite;
+}
+
+/* Corner image responsive styles */
+@media (max-width: 640px) {
+  .corner-image-container {
+    opacity: 0.85;
+  }
+  
+  .corner-image-container:hover {
+    opacity: 1;
+  }
+}
+
+/* Enhanced corner image effects */
+.corner-image-frame {
+  position: relative;
+  overflow: hidden;
+}
+
+.corner-image-frame::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--african-gold), var(--african-red), var(--african-green));
+  border-radius: 1rem;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.corner-image-frame:hover::before {
+  opacity: 0.7;
+}
+
+/* Gallery reveal effect */
+.gallery-reveal {
+  opacity: 0;
+  transform: scale(0.8) rotate(10deg);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.corner-image-container:hover .gallery-reveal {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+/* Custom Glassmorphism with African Colors */
+.african-glass {
+  background: rgba(248, 245, 240, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(248, 245, 240, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.african-glass-green {
+  background: rgba(61, 104, 82, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(61, 104, 82, 0.2);
+  box-shadow: 0 8px 32px rgba(61, 104, 82, 0.1);
+}
+
+.african-glass-red {
+  background: rgba(196, 64, 62, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(196, 64, 62, 0.2);
+  box-shadow: 0 8px 32px rgba(196, 64, 62, 0.1);
 }
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
+    background-image: 
+      radial-gradient(circle at 20% 80%, var(--african-green) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, var(--african-red) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, var(--african-gold) 0%, transparent 30%);
+    background-size: 100% 100%;
+    background-attachment: fixed;
   }
+}
+
+/* African-inspired text shadows and effects */
+.african-text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.african-border-pattern {
+  border-image: linear-gradient(45deg, var(--african-green), var(--african-red), var(--african-gold)) 1;
+  border-width: 3px;
+  border-style: solid;
 }
