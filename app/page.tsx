@@ -490,18 +490,18 @@ In the years that followed, they became friends. The kind of friends who laugh e
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="flex items-center space-x-4">
                   <Clock className="h-8 w-8 text-[var(--african-red)] flex-shrink-0" />
-                  <div>
+                <div>
                     <p className="font-bold text-[var(--african-green-dark)] text-xl">Saturday, November 29, 2025</p>
                     <p className="text-[var(--african-green-dark)] font-medium text-lg">16:00 - 00:00</p>
-                  </div>
+              </div>
                 </div>
                 <div className="flex items-start space-x-4">
                   <Calendar className="h-8 w-8 text-[var(--african-red)] mt-1 flex-shrink-0" />
-                  <div>
+                <div>
                     <p className="font-bold text-[var(--african-green-dark)] text-xl">Casa Social De Madeira</p>
                     <p className="text-[var(--african-green-dark)] font-medium text-lg">34 Boschkop Rd, Zwavelpoort</p>
                     <p className="text-base text-[var(--african-green)] italic mt-2">A beautiful ceremony surrounded by family and friends</p>
-                  </div>
+              </div>
                 </div>
               </div>
             </CardContent>
@@ -581,6 +581,23 @@ const renderRegistry = () => (
         </div>
       </div>
       
+      {/* Creative Image12 - Part of Content */}
+      <div className="flex justify-center mb-12 mt-15">
+        <div className="pulse-glow-animation shimmer-effect">
+          <Image
+            src="/images/image12.jpg"
+            alt="Wedding celebration"
+            width={400}
+            height={300}
+            className="rounded-3xl shadow-2xl transform hover:scale-105 transition-all duration-700 border-4 border-[#d4a574]"
+            style={{
+              filter: 'brightness(1.1) contrast(1.1) saturate(1.2)',
+              boxShadow: '0 20px 40px rgba(0,0,0,0.3), 0 0 20px rgba(212, 165, 116, 0.5)'
+            }}
+          />
+        </div>
+      </div>
+      
       <div className="mb-12 mt-15">
         <h3 className="font-serif text-2xl text-[#2a4b39] mb-8 text-center african-text-shadow">Our Curated Registries</h3>
         <div className="grid md:grid-cols-3 gap-8 mb-12">
@@ -636,7 +653,7 @@ const renderRegistry = () => (
               <Image src="https://www.inspiredlivingsa.co.za/wp-content/uploads/2013/11/MRPHOME-LOGOWHITE.jpg" alt="Mr Price Home" width={24} height={24} />
                 <span className="african-text-shadow text-xl">Mr Price Home</span>
               </CardTitle>
-            </CardHeader>
+        </CardHeader>
             <CardContent className="pt-6 space-y-4 bg-[#f8f5f0] bg-opacity-95 text-center">
               <h4 className="font-bold text-[#2a4b39] text-lg">Home Decor & Essentials</h4>
               <p className="text-[#d4a574] text-sm">
@@ -653,9 +670,9 @@ const renderRegistry = () => (
               </Button>
             </CardContent>
           </Card>
-        </div>
-      </div>
-
+              </div>
+            </div>
+            
       {/* Cash Contributions Section */}
       <Card className="border-2 border-[#3d6852] african-glass-green shadow-2xl max-w-4xl mx-auto">
         <CardHeader className="african-gradient-green text-center">
@@ -684,8 +701,8 @@ const renderRegistry = () => (
                 <div className="flex justify-between">
                   <span className="text-[#3d6852] font-medium">Branch Code:</span>
                   <span className="text-[#2a4b39] font-bold">2645</span>
-                </div>
-              </div>
+            </div>
+            </div>
             </div>
             
             <div className="african-glass p-6 rounded-xl border-2 border-[#c4403e]">
@@ -694,19 +711,19 @@ const renderRegistry = () => (
                 <div className="flex justify-between">
                   <span className="text-[#c4403e] font-medium">Account Name:</span>
                   <span className="text-[#2a4b39] font-bold text-sm">Diana Mawoko/Victor Sitanimezi</span>
-                </div>
+            </div>
                 <div className="flex justify-between">
                   <span className="text-[#c4403e] font-medium">Account Number:</span>
                   <span className="text-[#2a4b39] font-bold">10240912622</span>
-                </div>
+    </div>
                 <div className="flex justify-between">
                   <span className="text-[#c4403e] font-medium">Account Type:</span>
                   <span className="text-[#2a4b39] font-bold">Current</span>
                 </div>
               </div>
-            </div>
-          </div>
-          
+              </div>
+      </div>
+      
           <div className="text-center african-glass p-4 rounded-xl border-2 border-[#d4a574]">
             <h4 className="font-bold text-[#2a4b39] mb-2 african-text-shadow">Payment Reference</h4>
             <p className="text-[#d4a574] font-medium">Suggested Reference: <span className="text-[#2a4b39] font-bold">Your name and surname</span></p>
@@ -742,7 +759,7 @@ const renderDressCode = () => (
       {/* Uniform Options */}
       <div className="mb-12">
         <h3 className="font-serif text-2xl text-[#2a4b39] mb-8 text-center african-text-shadow">Uniform Options - R200 Each</h3>
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
+      <div className="grid md:grid-cols-2 gap-8 mb-12">
           
           {/* Mawoko Family Uniform */}
           <Card className="border-2 border-[#3d6852] shadow-2xl african-glass-green transform hover:scale-105 transition-all duration-300 hover:rotate-1">
@@ -774,7 +791,7 @@ const renderDressCode = () => (
               </div>
             </CardContent>
           </Card>
-
+          
           {/* Sitanimezi Family Uniform */}
           <Card className="border-2 border-[#2b4a84] shadow-2xl african-glass transform hover:scale-105 transition-all duration-300 hover:rotate-1" style={{backgroundColor: 'rgba(43, 74, 132, 0.1)'}}>
             <CardHeader className="text-center" style={{background: 'linear-gradient(135deg, #2b4a84, #4a6fa5)'}}>
@@ -791,7 +808,7 @@ const renderDressCode = () => (
                   fill
                   className="object-cover rounded-xl shadow-lg"
                 />
-              </div>
+                </div>
               <h4 className="font-bold text-[#2a4b39] text-lg">Navy Blue Uniform</h4>
               <p className="text-[#2b4a84] font-medium">
                 Elegant navy blue traditional design representing the distinguished Sitanimezi family heritage.
@@ -799,7 +816,7 @@ const renderDressCode = () => (
               <div className="flex justify-center space-x-4 mt-4">
                 <div className="w-8 h-8 bg-[#2b4a84] rounded-full border-2 border-white shadow-lg"></div>
                 <div className="w-8 h-8 bg-[#4a6fa5] rounded-full border-2 border-white shadow-lg"></div>
-              </div>
+                </div>
               <div className="african-glass p-3 rounded-lg border border-[#2b4a84]">
                 <p className="text-[#2a4b39] font-bold text-lg">R200</p>
               </div>
@@ -807,7 +824,29 @@ const renderDressCode = () => (
           </Card>
         </div>
       </div>
-
+      
+      {/* Creative Image13 - Part of Content */}
+      <div className="flex justify-center mb-12">
+        <div className="bounce-rotate-animation">
+          <div className="relative">
+            <Image
+              src="/images/image13.jpg"
+              alt="Celebration moment"
+              width={350}
+              height={280}
+              className="rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-500 border-4 border-[#c4403e]"
+              style={{
+                filter: 'brightness(1.2) contrast(1.1) saturate(1.3)',
+                boxShadow: '0 25px 50px rgba(0,0,0,0.4), 0 0 30px rgba(196, 64, 62, 0.4)'
+              }}
+            />
+            {/* Decorative dots around image13 */}
+            <div className="absolute -top-4 -right-4 w-8 h-8 bg-[#d4a574] rounded-full animate-ping"></div>
+            <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-[#3d6852] rounded-full animate-pulse"></div>
+          </div>
+        </div>
+      </div>
+      
       {/* Payment Information */}
       <Card className="border-2 border-[#3d6852] african-glass-green shadow-2xl max-w-4xl mx-auto mb-8">
         <CardHeader className="african-gradient-green text-center">
@@ -900,6 +939,31 @@ const renderDressCode = () => (
           </div>
         </CardContent>
       </Card>
+      
+      {/* Creative Image14 - Part of Content */}
+      <div className="flex justify-center mt-12">
+        <div className="heartbeat-zoom-animation">
+          <div className="relative">
+            <Image
+              src="/images/image14.jpg"
+              alt="Joyful celebration"
+              width={380}
+              height={320}
+              className="rounded-3xl shadow-2xl transform hover:scale-105 transition-all duration-700 border-4 border-[#3d6852]"
+              style={{
+                filter: 'brightness(1.15) contrast(1.2) saturate(1.2)',
+                boxShadow: '0 30px 60px rgba(0,0,0,0.3), 0 0 40px rgba(61, 104, 82, 0.5)',
+                background: 'linear-gradient(45deg, rgba(212, 165, 116, 0.1), rgba(196, 64, 62, 0.1))'
+              }}
+            />
+            {/* Sparkle effects around image14 */}
+            <div className="absolute -top-6 -left-6 w-4 h-4 bg-[#d4a574] rounded-full animate-bounce" style={{animationDelay: '0.5s'}}></div>
+            <div className="absolute -top-2 -right-8 w-3 h-3 bg-[#c4403e] rounded-full animate-bounce" style={{animationDelay: '1s'}}></div>
+            <div className="absolute -bottom-6 -right-6 w-5 h-5 bg-[#3d6852] rounded-full animate-bounce" style={{animationDelay: '1.5s'}}></div>
+            <div className="absolute -bottom-2 -left-8 w-3 h-3 bg-[#d4a574] rounded-full animate-bounce" style={{animationDelay: '2s'}}></div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 )
@@ -924,16 +988,16 @@ return (
         <div className="african-glass p-6 rounded-2xl max-w-2xl mx-auto mb-6">
           <p className="text-[var(--african-green-dark)] mb-4 text-lg font-medium">November 29, 2025 • Pretoria, South Africa</p>
           <p className="text-[var(--african-green)] text-base african-text-shadow">
-            We can't wait to celebrate with you!
-          </p>
+          We can't wait to celebrate with you!
+        </p>
         </div>
         <div className="african-glass p-4 rounded-xl max-w-xl mx-auto">
           <p className="text-sm text-[var(--african-green-dark)] font-medium">
             For questions, please contact us at 
             <br className="sm:hidden" />
             <span className="text-[var(--african-red)] font-semibold"> weddingdianavictor@gmail.com</span>
-            <br className="sm:hidden" /><p> or 
-            <span className="text-[var(--african-red)] font-semibold"> +27 79 246 8279</span></p>
+            <br className="sm:hidden" /><span> or 
+            <span className="text-[var(--african-red)] font-semibold"> +27 79 246 8279</span></span>
           </p>
         </div>
         <div className="mt-8 flex justify-center space-x-4">
