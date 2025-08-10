@@ -690,7 +690,7 @@ const renderDressCode = () => (
         <CardHeader className="african-gradient-green text-center">
           <CardTitle className="flex items-center justify-center space-x-3 text-[#f8f5f0]">
             <Gift className="h-8 w-8 float-animation" />
-            <span className="african-text-shadow text-2xl">Uniform Payment Details</span>
+            <span className="african-text-shadow text-2xl text-[var(--elegant-brown-dark)]">Uniform Payment Details</span>
           </CardTitle>
         </CardHeader>
         <CardContent className="pt-8 space-y-6 bg-[#f8f5f0] bg-opacity-95">
