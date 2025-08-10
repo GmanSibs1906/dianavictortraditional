@@ -6,375 +6,219 @@ import { Button } from '../components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card'
 import { Badge } from '../components/ui/badge'
 
-import { Heart, MapPin, Calendar, Clock, Gift, Users, Sparkles, Camera, Music, Menu, X } from 'lucide-react'
-import { AfricanTextileOverlay, AfricanCornerDecoration } from '../components/african-patterns'
+import { Heart, MapPin, Calendar, Clock, Gift, Users, Sparkles, Camera, Music } from 'lucide-react'
 
 export default function WeddingWebsite() {
 const [activeSection, setActiveSection] = useState('home')
-const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
 
 
 
 const renderNavigation = () => (
-  <nav className="fixed top-0 w-full african-glass z-50 border-b african-border-pattern">
-    <div className="container mx-auto px-4">
-      <div className="flex items-center justify-between h-16">
-        <div className="flex items-center space-x-2 float-animation">
-          <Heart className="h-6 w-6 text-[#c4403e]" />
-          <span className="font-serif text-xl text-[#2a4b39] african-text-shadow">Diana & Victor</span>
-        </div>
-        <div className="hidden md:flex items-center space-x-8">
-          {[
-            { id: 'home', label: 'Home' },
-            { id: 'registry', label: 'Registry' },
-            { id: 'dresscode', label: 'Dress Code' }
-          ].map(item => (
-            <button
-              key={item.id}
-              onClick={() => setActiveSection(item.id)}
-              className={`text-sm font-medium transition-all duration-300 ${
-                activeSection === item.id 
-                  ? 'text-[#c4403e] border-b-2 border-[#c4403e] transform scale-105' 
-                  : 'text-[#2a4b39] hover:text-[#c4403e] hover:scale-105'
-              }`}
+  <>
+    {/* Desktop Navigation */}
+    <nav className="hidden md:block fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-[var(--elegant-border)] shadow-sm">
+      <div className="container mx-auto px-6">
+        <div className="flex items-center justify-between h-20">
+          <div className="flex items-center">
+            <Image
+              src="/logo.png"
+              alt="Diana & Victor"
+              width={80}
+              height={40}
+              className="object-contain"
+            />
+          </div>
+          
+          <div className="flex items-center space-x-12">
+            {[
+              { id: 'home', label: 'Home' },
+              { id: 'registry', label: 'Registry' },
+              { id: 'dresscode', label: 'Dress Code' }
+            ].map(item => (
+              <button
+                key={item.id}
+                onClick={() => setActiveSection(item.id)}
+                className={`font-light text-base tracking-wide transition-all duration-300 relative ${
+                  activeSection === item.id 
+                    ? 'text-[var(--elegant-gold)]' 
+                    : 'text-[var(--elegant-brown-dark)] hover:text-[var(--elegant-gold)]'
+                }`}
+              >
+                {item.label}
+                {activeSection === item.id && (
+                  <div className="absolute -bottom-1 left-0 right-0 h-px bg-[var(--elegant-gold)]"></div>
+                )}
+              </button>
+            ))}
+          </div>
+          
+          <div>
+            <Button
+              onClick={() => window.open('https://tally.so/r/nPqb7V', '_blank')}
+              className="bg-[var(--elegant-gold)] hover:bg-[var(--elegant-gold-dark)] text-white px-8 py-3 text-sm font-medium tracking-wide transition-all duration-300 border-0 rounded-none"
             >
-              {item.label}
-            </button>
-          ))}
-          <Button
-            onClick={() => window.open('https://tally.so/r/nPqb7V', '_blank')}
-            className="african-gradient-red hover:african-gradient-green text-white px-6 py-2 text-sm rounded-full transform hover:scale-105 transition-all duration-300 african-text-shadow"
-          >
-            RSVP
-          </Button>
-        </div>
-        <div className="md:hidden">
-          <Button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="p-2 african-glass border-2 border-[#3d6852] hover:border-[#c4403e] transition-all duration-300"
-            size="sm"
-          >
-            {isMobileMenuOpen ? (
-              <X className="h-5 w-5 text-[#2a4b39]" />
-            ) : (
-              <Menu className="h-5 w-5 text-[#2a4b39]" />
-            )}
-          </Button>
-        </div>
-      </div>
-    </div>
-    
-    {/* Mobile Menu Overlay */}
-    {isMobileMenuOpen && (
-      <div 
-        className="md:hidden fixed inset-0 top-16 bg-black/50 backdrop-blur-sm z-40 mobile-menu-enter"
-        onClick={() => setIsMobileMenuOpen(false)}
-      >
-        <div 
-          className="african-glass border-t african-border-pattern bg-[#f8f5f0]/95 backdrop-blur-md shadow-2xl"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <div className="container mx-auto px-4 py-6">
-            <div className="space-y-3">
-              {[
-                { id: 'home', label: 'Home', icon: Heart },
-                { id: 'registry', label: 'Registry', icon: Gift },
-                { id: 'dresscode', label: 'Dress Code', icon: Sparkles }
-              ].map((item, index) => {
-                const IconComponent = item.icon
-                return (
-                  <button
-                    key={item.id}
-                    onClick={() => {
-                      setActiveSection(item.id)
-                      setIsMobileMenuOpen(false)
-                    }}
-                    className={`mobile-menu-item w-full flex items-center space-x-4 p-4 rounded-xl text-left transition-all duration-300 border-2 ${
-                      activeSection === item.id 
-                        ? 'african-gradient-red text-white shadow-lg transform scale-105 border-[#d4a574]' 
-                        : 'african-glass hover:african-gradient-green hover:text-white text-[#2a4b39] hover:shadow-md hover:scale-102 border-transparent hover:border-[#d4a574]'
-                    }`}
-                  >
-                    <div className={`p-2 rounded-lg ${activeSection === item.id ? 'bg-white/20' : 'bg-[#3d6852]/10'}`}>
-                      <IconComponent className="h-5 w-5" />
-                    </div>
-                    <span className="font-medium text-lg">{item.label}</span>
-                  </button>
-                )
-              })}
-              
-              {/* Mobile RSVP Button */}
-              <div className="pt-4 border-t border-[#d4a574]/30">
-                <Button
-                  onClick={() => {
-                    window.open('https://tally.so/r/nPqb7V', '_blank')
-                    setIsMobileMenuOpen(false)
-                  }}
-                  className="mobile-menu-item w-full african-gradient-red hover:african-gradient-green text-white py-4 text-lg font-medium rounded-xl transform hover:scale-105 transition-all duration-300 african-text-shadow border-2 border-[#d4a574] shadow-lg"
-                >
-                  <div className="flex items-center justify-center space-x-2">
-                    <Heart className="h-5 w-5" />
-                    <span>RSVP Now</span>
-                  </div>
-                </Button>
-              </div>
-            </div>
+              RSVP
+            </Button>
           </div>
         </div>
       </div>
-    )}
-  </nav>
+    </nav>
+    
+    {/* Mobile Header - Logo Only */}
+    <div className="md:hidden fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-[var(--elegant-border)] shadow-sm">
+      <div className="flex items-center justify-center h-16 px-6">
+        <Image
+          src="/logo.png"
+          alt="Diana & Victor"
+          width={80}
+          height={40}
+          className="object-contain"
+        />
+      </div>
+    </div>
+    
+    {/* Mobile Navigation Tabs - Fixed at bottom */}
+    <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-[var(--elegant-border)] z-50">
+      <div className="grid grid-cols-4 h-16">
+        {[
+          { id: 'home', label: 'Home' },
+          { id: 'registry', label: 'Registry' },
+          { id: 'dresscode', label: 'Dress' }
+        ].map((item) => (
+          <button
+            key={item.id}
+            onClick={() => setActiveSection(item.id)}
+            className={`flex flex-col items-center justify-center space-y-1 transition-all duration-300 ${
+              activeSection === item.id 
+                ? 'text-[var(--elegant-gold)] bg-[var(--elegant-gold)]/5' 
+                : 'text-[var(--elegant-brown-dark)] hover:text-[var(--elegant-gold)] hover:bg-[var(--elegant-gold)]/5'
+            }`}
+          >
+            <div className={`w-1 h-1 rounded-full transition-all duration-300 ${
+              activeSection === item.id ? 'bg-[var(--elegant-gold)]' : 'bg-transparent'
+            }`}></div>
+            <span className="text-xs font-medium tracking-wide">{item.label}</span>
+          </button>
+        ))}
+        
+        {/* RSVP Button */}
+        <button
+          onClick={() => window.open('https://tally.so/r/nPqb7V', '_blank')}
+          className="flex flex-col items-center justify-center bg-[var(--elegant-gold)] text-white transition-all duration-300 hover:bg-[var(--elegant-gold-dark)]"
+        >
+          <div className="w-1 h-1 rounded-full bg-white/50"></div>
+          <span className="text-xs font-medium tracking-wide">RSVP</span>
+        </button>
+      </div>
+    </div>
+  </>
 )
 
 const renderHome = () => (
   <>
-    <section className="min-h-screen relative flex items-center justify-center african-pattern-green overflow-hidden">
-      <div className="absolute inset-0">
-        <Image
-          src="/images/couple-ferns.jpg"
-          alt="Diana and Victor"
-          fill
-          className="object-cover mix-blend-overlay opacity-80"
-          priority
-        />
-        <div className="absolute inset-0 african-gradient-warm opacity-60"></div>
-        <div className="absolute inset-0 african-pattern-red opacity-20"></div>
+    <section className="relative min-h-screen bg-[var(--elegant-cream)]">
+      {/* Elegant Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, var(--elegant-gold) 1px, transparent 0)`,
+          backgroundSize: '40px 40px'
+        }}></div>
       </div>
       
-      {/* Creative Corner Images */}
-      {/* Top Left Corner */}
-      <div className="absolute top-2 left-2 sm:top-4 sm:left-4 md:top-8 md:left-8 z-20 corner-image-container">
-        <div className="relative group corner-image-animation">
-          <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32 lg:w-36 lg:h-36 transform -rotate-12 hover:rotate-6 transition-all duration-700 hover:scale-110 corner-image-frame">
-            <Image
-              src="/images/image1.jpg"
-              alt="Wedding moment 1"
-              fill
-              className="object-cover rounded-2xl shadow-2xl border-3 md:border-4 border-[#f8f5f0] group-hover:border-[#d4a574] transition-all duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-br from-[#3d6852]/20 to-[#c4403e]/20 rounded-2xl group-hover:opacity-0 transition-opacity duration-500"></div>
-          </div>
-          <div className="absolute -bottom-1 -right-1 md:-bottom-2 md:-right-2 w-4 h-4 md:w-6 md:h-6 bg-[#d4a574] rounded-full animate-pulse">
-            <div className="absolute inset-0 bg-[#f8f5f0] rounded-full animate-ping opacity-75"></div>
-          </div>
-        </div>
-      </div>
-      
-      {/* Top Right Corner */}
-      <div className="absolute top-2 right-2 sm:top-4 sm:right-4 md:top-8 md:right-8 z-20 corner-image-container">
-        <div className="relative group corner-image-animation" style={{animationDelay: '0.5s'}}>
-          <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32 lg:w-36 lg:h-36 transform rotate-12 hover:-rotate-6 transition-all duration-700 hover:scale-110 corner-image-frame">
-            <Image
-              src="/images/image2.jpg"
-              alt="Wedding moment 2"
-              fill
-              className="object-cover rounded-2xl shadow-2xl border-3 md:border-4 border-[#f8f5f0] group-hover:border-[#c4403e] transition-all duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-bl from-[#c4403e]/20 to-[#3d6852]/20 rounded-2xl group-hover:opacity-0 transition-opacity duration-500"></div>
-          </div>
-          <div className="absolute -bottom-1 -left-1 md:-bottom-2 md:-left-2 w-4 h-4 md:w-6 md:h-6 bg-[#c4403e] rounded-full animate-pulse" style={{animationDelay: '0.5s'}}>
-            <div className="absolute inset-0 bg-[#f8f5f0] rounded-full animate-ping opacity-75" style={{animationDelay: '0.3s'}}></div>
-          </div>
-        </div>
-      </div>
-      
-      {/* Bottom Left Corner */}
-      <div className="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 md:bottom-8 md:left-8 z-20 corner-image-container">
-        <div className="relative group corner-image-animation" style={{animationDelay: '1s'}}>
-          <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32 lg:w-36 lg:h-36 transform rotate-6 hover:-rotate-12 transition-all duration-700 hover:scale-110 corner-image-frame">
-            <Image
-              src="/images/image15.JPG"
-              alt="Wedding moment 3"
-              fill
-              className="object-cover rounded-2xl shadow-2xl border-3 md:border-4 border-[#f8f5f0] group-hover:border-[#3d6852] transition-all duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#d4a574]/20 to-[#c4403e]/20 rounded-2xl group-hover:opacity-0 transition-opacity duration-500"></div>
-          </div>
-          <div className="absolute -top-1 -right-1 md:-top-2 md:-right-2 w-4 h-4 md:w-6 md:h-6 bg-[#3d6852] rounded-full animate-pulse" style={{animationDelay: '1s'}}>
-            <div className="absolute inset-0 bg-[#f8f5f0] rounded-full animate-ping opacity-75" style={{animationDelay: '0.7s'}}></div>
-          </div>
-        </div>
-      </div>
-      
-      {/* Bottom Right Corner */}
-      <div className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 md:bottom-8 md:right-8 z-20 corner-image-container">
-        <div className="relative group corner-image-animation" style={{animationDelay: '1.5s'}}>
-          <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32 lg:w-36 lg:h-36 transform -rotate-6 hover:rotate-12 transition-all duration-700 hover:scale-110 corner-image-frame">
-            <Image
-              src="/images/image4.jpg"
-              alt="Wedding moment 4"
-              fill
-              className="object-cover rounded-2xl shadow-2xl border-3 md:border-4 border-[#f8f5f0] group-hover:border-[#d4a574] transition-all duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-tl from-[#3d6852]/20 to-[#d4a574]/20 rounded-2xl group-hover:opacity-0 transition-opacity duration-500"></div>
-          </div>
-          <div className="absolute -top-1 -left-1 md:-top-2 md:-left-2 w-4 h-4 md:w-6 md:h-6 bg-[#d4a574] rounded-full animate-pulse" style={{animationDelay: '1.5s'}}>
-            <div className="absolute inset-0 bg-[#f8f5f0] rounded-full animate-ping opacity-75" style={{animationDelay: '1.2s'}}></div>
-          </div>
-        </div>
-      </div>
-      
-      {/* Additional Creative Images */}
-      {/* Left Edge - Image 5 */}
-      <div className="absolute left-1 top-1/3 sm:left-2 md:left-4 z-15 corner-image-container">
-        <div className="relative group gallery-drift-animation" style={{animationDelay: '2s'}}>
-          <div className="w-12 h-16 sm:w-16 sm:h-20 md:w-24 md:h-32 lg:w-28 lg:h-36 transform rotate-3 hover:-rotate-6 transition-all duration-700 hover:scale-105 corner-image-frame">
-            <Image
-              src="/images/image5.jpg"
-              alt="Wedding moment 5"
-              fill
-              className="object-cover rounded-xl shadow-xl border-2 md:border-3 border-[#f8f5f0] group-hover:border-[#c4403e] transition-all duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#c4403e]/15 to-[#d4a574]/15 rounded-xl group-hover:opacity-0 transition-opacity duration-500"></div>
-          </div>
-          <div className="absolute -bottom-1 -right-1 w-3 h-3 md:w-4 md:h-4 bg-[#c4403e] rounded-full animate-pulse" style={{animationDelay: '2.2s'}}>
-            <div className="absolute inset-0 bg-[#f8f5f0] rounded-full animate-ping opacity-75" style={{animationDelay: '1.8s'}}></div>
-          </div>
-        </div>
-      </div>
-      
-      {/* Right Edge - Image 6 */}
-      <div className="absolute right-1 top-1/3 sm:right-2 md:right-4 z-15 corner-image-container">
-        <div className="relative group gallery-drift-animation" style={{animationDelay: '2.3s'}}>
-          <div className="w-12 h-16 sm:w-16 sm:h-20 md:w-24 md:h-32 lg:w-28 lg:h-36 transform -rotate-3 hover:rotate-6 transition-all duration-700 hover:scale-105 corner-image-frame">
-            <Image
-              src="/images/image6.jpg"
-              alt="Wedding moment 6"
-              fill
-              className="object-cover rounded-xl shadow-xl border-2 md:border-3 border-[#f8f5f0] group-hover:border-[#3d6852] transition-all duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-l from-[#3d6852]/15 to-[#d4a574]/15 rounded-xl group-hover:opacity-0 transition-opacity duration-500"></div>
-          </div>
-          <div className="absolute -bottom-1 -left-1 w-3 h-3 md:w-4 md:h-4 bg-[#3d6852] rounded-full animate-pulse" style={{animationDelay: '2.5s'}}>
-            <div className="absolute inset-0 bg-[#f8f5f0] rounded-full animate-ping opacity-75" style={{animationDelay: '2.1s'}}></div>
-          </div>
-        </div>
-      </div>
-      
-      {/* Top Edge Center Left - Image 7 */}
-      <div className="absolute top-1 left-1/4 sm:top-2 md:top-4 z-15 corner-image-container">
-        <div className="relative group corner-image-animation" style={{animationDelay: '2.6s'}}>
-          <div className="w-14 h-14 sm:w-18 sm:h-18 md:w-28 md:h-28 lg:w-32 lg:h-32 transform rotate-12 hover:-rotate-3 transition-all duration-700 hover:scale-110 corner-image-frame">
-            <Image
-              src="/images/image7.jpg"
-              alt="Wedding moment 7"
-              fill
-              className="object-cover rounded-full shadow-xl border-2 md:border-3 border-[#f8f5f0] group-hover:border-[#d4a574] transition-all duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-br from-[#d4a574]/15 to-[#c4403e]/15 rounded-full group-hover:opacity-0 transition-opacity duration-500"></div>
-          </div>
-          <div className="absolute -bottom-1 -right-1 w-3 h-3 md:w-4 md:h-4 bg-[#d4a574] rounded-full animate-pulse" style={{animationDelay: '2.8s'}}>
-            <div className="absolute inset-0 bg-[#f8f5f0] rounded-full animate-ping opacity-75" style={{animationDelay: '2.4s'}}></div>
-          </div>
-        </div>
-      </div>
-      
-      {/* Top Edge Center Right - Image 8 */}
-      <div className="absolute top-1 right-1/4 sm:top-2 md:top-4 z-15 corner-image-container">
-        <div className="relative group corner-image-animation" style={{animationDelay: '2.9s'}}>
-          <div className="w-14 h-14 sm:w-18 sm:h-18 md:w-28 md:h-28 lg:w-32 lg:h-32 transform -rotate-12 hover:rotate-3 transition-all duration-700 hover:scale-110 corner-image-frame">
-            <Image
-              src="/images/image8.JPG"
-              alt="Wedding moment 8"
-              fill
-              className="object-cover rounded-full shadow-xl border-2 md:border-3 border-[#f8f5f0] group-hover:border-[#c4403e] transition-all duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-bl from-[#c4403e]/15 to-[#3d6852]/15 rounded-full group-hover:opacity-0 transition-opacity duration-500"></div>
-          </div>
-          <div className="absolute -bottom-1 -left-1 w-3 h-3 md:w-4 md:h-4 bg-[#c4403e] rounded-full animate-pulse" style={{animationDelay: '3.1s'}}>
-            <div className="absolute inset-0 bg-[#f8f5f0] rounded-full animate-ping opacity-75" style={{animationDelay: '2.7s'}}></div>
-          </div>
-        </div>
-      </div>
-      
-      {/* Bottom Edge Center Left - Image 9 */}
-      <div className="absolute bottom-1 left-1/4 sm:bottom-2 md:bottom-4 z-15 corner-image-container">
-        <div className="relative group gallery-drift-animation" style={{animationDelay: '3.2s'}}>
-          <div className="w-12 h-18 sm:w-16 sm:h-24 md:w-22 md:h-32 lg:w-26 lg:h-36 transform rotate-8 hover:-rotate-4 transition-all duration-700 hover:scale-105 corner-image-frame">
-            <Image
-              src="/images/image9.JPG"
-              alt="Wedding moment 9"
-              fill
-              className="object-cover rounded-lg shadow-xl border-2 md:border-3 border-[#f8f5f0] group-hover:border-[#3d6852] transition-all duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#3d6852]/15 to-[#d4a574]/15 rounded-lg group-hover:opacity-0 transition-opacity duration-500"></div>
-          </div>
-          <div className="absolute -top-1 -right-1 w-3 h-3 md:w-4 md:h-4 bg-[#3d6852] rounded-full animate-pulse" style={{animationDelay: '3.4s'}}>
-            <div className="absolute inset-0 bg-[#f8f5f0] rounded-full animate-ping opacity-75" style={{animationDelay: '3s'}}></div>
-          </div>
-        </div>
-      </div>
-      
-      {/* Bottom Edge Center Right - Image 10 */}
-      <div className="absolute bottom-1 right-1/4 sm:bottom-2 md:bottom-4 z-15 corner-image-container">
-        <div className="relative group gallery-drift-animation" style={{animationDelay: '3.5s'}}>
-          <div className="w-12 h-18 sm:w-16 sm:h-24 md:w-22 md:h-32 lg:w-26 lg:h-36 transform -rotate-8 hover:rotate-4 transition-all duration-700 hover:scale-105 corner-image-frame">
-            <Image
-              src="/images/image10.jpg"
-              alt="Wedding moment 10"
-              fill
-              className="object-cover rounded-lg shadow-xl border-2 md:border-3 border-[#f8f5f0] group-hover:border-[#d4a574] transition-all duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-tl from-[#d4a574]/15 to-[#c4403e]/15 rounded-lg group-hover:opacity-0 transition-opacity duration-500"></div>
-          </div>
-          <div className="absolute -top-1 -left-1 w-3 h-3 md:w-4 md:h-4 bg-[#d4a574] rounded-full animate-pulse" style={{animationDelay: '3.7s'}}>
-            <div className="absolute inset-0 bg-[#f8f5f0] rounded-full animate-ping opacity-75" style={{animationDelay: '3.3s'}}></div>
-          </div>
-        </div>
-      </div>
-      
-      <div className="relative z-10 text-center max-w-5xl mx-auto px-4">
-        <div className="mb-8 pattern-animation">
-          <h1 className="font-serif text-5xl md:text-7xl mb-4 tracking-tight text-[#f8f5f0] african-text-shadow">
-            Diana & Victor
-          </h1>
+      {/* Main Content */}
+      <div className="relative z-10 pt-32 pb-20">
+        <div className="container mx-auto px-6 max-w-6xl">
           
-          {/* Traditional Wedding & Dot Celebration */}
-          <div className="mb-6 space-y-3">
-            <div className="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-6 text-2xl md:text-3xl font-bold text-[#f8f5f0]">
-              <span className="african-glass px-6 py-3 rounded-2xl border-2 border-[#d4a574] african-text-shadow">
-                Traditional Wedding
-              </span>
-              <span className="text-[#d4a574] text-4xl md:text-5xl font-light">•</span>
-              <span className="african-glass px-6 py-3 rounded-2xl border-2 border-[#c4403e] african-text-shadow">
-                La Dot
-              </span>
+          {/* Hero Logo Section */}
+          <div className="text-center mb-16">
+            <div className="inline-block mb-8">
+              <Image
+                src="/logo.png"
+                alt="Diana & Victor"
+                width={300}
+                height={150}
+                className="object-contain mx-auto"
+              />
             </div>
-            <p className="text-lg md:text-xl font-medium text-[#2a4b39] african-text-shadow">
-              A beautiful union of cultures and traditions
-            </p>
+            
+            {/* Elegant Divider */}
+            <div className="flex items-center justify-center mb-8">
+              <div className="h-px bg-[var(--elegant-gold)] w-24"></div>
+              <div className="mx-4 w-2 h-2 bg-[var(--elegant-gold)] rounded-full"></div>
+              <div className="h-px bg-[var(--elegant-gold)] w-24"></div>
+            </div>
+            
+            {/* Event Details */}
+            <div className="space-y-6">
+              <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
+                <div className="text-center">
+                  <h2 className="text-2xl md:text-3xl font-light text-[var(--elegant-brown-dark)] tracking-wider mb-2">
+                    Traditional Wedding
+                  </h2>
+                  <div className="w-16 h-px bg-[var(--elegant-gold)] mx-auto"></div>
+                </div>
+                <div className="hidden md:block w-px h-16 bg-[var(--elegant-gold)]"></div>
+                <div className="text-center">
+                  <h2 className="text-2xl md:text-3xl font-light text-[var(--elegant-brown-dark)] tracking-wider mb-2">
+                    La Dot
+                  </h2>
+                  <div className="w-16 h-px bg-[var(--elegant-gold)] mx-auto"></div>
+                </div>
+              </div>
+              
+              <p className="text-lg text-[var(--elegant-brown)] font-light max-w-2xl mx-auto leading-relaxed">
+                A beautiful union of cultures and traditions
+              </p>
+            </div>
           </div>
           
-          <div className="flex items-center justify-center space-x-4 text-xl md:text-2xl font-light text-[#f8f5f0] mb-8">
-            <span className="african-glass px-4 py-2 rounded-full">November 29th, 2025</span>
-            <Heart className="h-8 w-8 text-[#c4403e] float-animation" />
-            <span className="african-glass px-4 py-2 rounded-full">Pretoria, South Africa</span>
+          {/* Date and Location */}
+          <div className="bg-white/60 backdrop-blur-sm border border-[var(--elegant-border)] rounded-none p-12 mb-16 max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 text-center">
+              <div className="space-y-4">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-[var(--elegant-gold)]/10 rounded-full mb-4">
+                  <Calendar className="h-8 w-8 text-[var(--elegant-gold)]" />
+                </div>
+                <h3 className="text-xl font-light text-[var(--elegant-brown-dark)] tracking-wide">Date</h3>
+                <p className="text-2xl font-light text-[var(--elegant-gold)]">November 29th, 2025</p>
+                <p className="text-base text-[var(--elegant-brown)] font-light">4:00 PM - 12:00 AM</p>
+              </div>
+              
+              <div className="space-y-4">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-[var(--elegant-gold)]/10 rounded-full mb-4">
+                  <MapPin className="h-8 w-8 text-[var(--elegant-gold)]" />
+                </div>
+                <h3 className="text-xl font-light text-[var(--elegant-brown-dark)] tracking-wide">Location</h3>
+                <p className="text-2xl font-light text-[var(--elegant-gold)]">Casa Social De Madeira</p>
+                <p className="text-base text-[var(--elegant-brown)] font-light">Pretoria, South Africa</p>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="space-y-6">
-          <p className="text-lg md:text-xl font-light max-w-3xl mx-auto leading-relaxed text-[#f8f5f0] african-glass p-6 rounded-2xl">
-            {"We're celebrating our Traditional Wedding and Dot ceremony, and we would love for you to join us on our special day as we begin this beautiful journey together, honoring both our heritage and our future."}
-          </p>
-          <Button 
-            onClick={() => window.open('https://tally.so/r/nPqb7V', '_blank')}
-            className="african-gradient-red hover:african-gradient-green text-white px-10 py-4 text-lg font-medium rounded-full transform hover:scale-110 transition-all duration-300 african-text-shadow border-2 border-[#d4a574]"
-          >
-            RSVP Now
-          </Button>
+          
+          {/* Invitation Message */}
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <p className="text-xl md:text-2xl font-light text-[var(--elegant-brown-dark)] leading-relaxed mb-8">
+              We're celebrating our Traditional Wedding and Dot ceremony, and we would love for you to join us on our special day as we begin this beautiful journey together, honoring both our heritage and our future.
+            </p>
+            
+            <Button 
+              onClick={() => window.open('https://tally.so/r/nPqb7V', '_blank')}
+              className="bg-[var(--elegant-gold)] hover:bg-[var(--elegant-gold-dark)] text-white px-12 py-4 text-lg font-light tracking-wider transition-all duration-300 border-0 rounded-none min-w-[200px]"
+            >
+              RSVP NOW
+            </Button>
+          </div>
+          
         </div>
       </div>
     </section>
 
-    <section className="py-20 african-gradient-warm relative overflow-hidden">
-      <div className="absolute inset-0 african-pattern-green opacity-10"></div>
-      <AfricanTextileOverlay className="opacity-30" />
-      <AfricanCornerDecoration corner="top-left" className="opacity-80" />
-      <AfricanCornerDecoration corner="bottom-right" className="opacity-80" />
+    <section className="py-20 bg-[var(--elegant-beige)] relative overflow-hidden">
       <div className="container mx-auto px-4 max-w-6xl relative z-10">
         <div className="text-center mb-16 pattern-animation">
-          <h2 className="font-serif text-4xl md:text-5xl text-[#2a4b39] mb-4 african-text-shadow">Our Love Story</h2>
-          <p className="text-xl text-[#2a4b39] max-w-2xl mx-auto font-medium">
+          <h2 className="font-serif text-4xl md:text-5xl text-[var(--elegant-gold)] mb-4 gold-text-shadow">Our Love Story</h2>
+          <p className="text-xl text-[var(--elegant-brown-dark)] max-w-2xl mx-auto font-medium">
             A beautiful journey of love, laughter, and shared dreams
           </p>
         </div>
@@ -390,43 +234,43 @@ const renderHome = () => (
             />
           </div>
           <div className="space-y-6">
-            <Card className="border-2 border-[#3d6852] shadow-2xl african-glass-green transform hover:scale-105 transition-all duration-300">
-              <CardHeader className="african-gradient-green">
-                <CardTitle className="flex items-center space-x-2 text-[#f8f5f0]">
-                  <Heart className="h-5 w-5 text-[#c4403e] float-animation" />
-                  <span className="african-text-shadow">How We Met</span>
+            <Card className="border-2 border-[var(--elegant-gold)] shadow-2xl elegant-glass-gold transform hover:scale-105 transition-all duration-300">
+              <CardHeader className="elegant-gradient-gold">
+                <CardTitle className="flex items-center space-x-2 text-[var(--elegant-brown-dark)]">
+                  <Heart className="h-5 w-5 text-[var(--elegant-gold-dark)] float-animation" />
+                  <span className="elegant-text-shadow">How We Met</span>
                 </CardTitle>
               </CardHeader>
-              <CardContent className="bg-[#f8f5f0] bg-opacity-95">
-                <p className="text-[#2a4b39] leading-relaxed font-medium">
+              <CardContent className="bg-[var(--elegant-white)] bg-opacity-95">
+                <p className="text-[var(--elegant-brown-dark)] leading-relaxed font-medium">
 It all began at the Parish of Maria Regina, not inside the church, but in the quiet familiarity of the parish home, where Diana's late cousin was serving as a priest (Rest in Peace Fr. Muhau). That is where Victor and Diana first crossed paths. There were no grand declarations or instant sparks, just two people meeting under ordinary circumstances, unaware that life had something in store for them.
                 </p>
               </CardContent>
             </Card>
             
-            <Card className="border-2 border-[var(--african-red)] shadow-2xl african-glass-red transform hover:scale-105 transition-all duration-300">
-              <CardHeader className="african-gradient-red">
-                <CardTitle className="flex items-center space-x-2 text-[var(--african-cream)]">
-                  <Heart className="h-5 w-5 text-[var(--african-gold)] float-animation" />
-                  <span className="african-text-shadow">From Friends to Forever</span>
+            <Card className="border-2 border-[var(--elegant-brown)] shadow-2xl elegant-glass-brown transform hover:scale-105 transition-all duration-300">
+              <CardHeader className="elegant-gradient-brown">
+                <CardTitle className="flex items-center space-x-2 text-[var(--elegant-cream)]">
+                  <Heart className="h-5 w-5 text-[var(--elegant-gold)] float-animation" />
+                  <span className="elegant-text-shadow">From Friends to Forever</span>
                 </CardTitle>
               </CardHeader>
-              <CardContent className="bg-[var(--african-cream)] bg-opacity-95">
-                <p className="text-[var(--african-green-dark)] leading-relaxed font-medium">
+              <CardContent className="bg-[var(--elegant-white)] bg-opacity-95">
+                <p className="text-[var(--elegant-brown-dark)] leading-relaxed font-medium">
 In the years that followed, they became friends. The kind of friends who laugh easily, talk often, and genuinely enjoy each other's company. Their friendship was patient and steady, growing quietly in the background of their busy lives. But time has a way of revealing what is meant to be. What started as friendship slowly deepened into something more.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-[var(--african-gold)] shadow-2xl african-glass transform hover:scale-105 transition-all duration-300">
-              <CardHeader className="african-gradient-warm">
-                <CardTitle className="flex items-center space-x-2 text-[var(--african-green-dark)]">
-                  <Sparkles className="h-5 w-5 text-[var(--african-red)] float-animation" />
-                  <span className="african-text-shadow">The Puppy That Stole Hearts</span>
+            <Card className="border-2 border-[var(--elegant-gold)] shadow-2xl elegant-glass transform hover:scale-105 transition-all duration-300">
+              <CardHeader className="elegant-gradient-cream">
+                <CardTitle className="flex items-center space-x-2 text-[var(--elegant-brown-dark)]">
+                  <Sparkles className="h-5 w-5 text-[var(--elegant-gold)] float-animation" />
+                  <span className="elegant-text-shadow">The Puppy That Stole Hearts</span>
                 </CardTitle>
               </CardHeader>
-              <CardContent className="bg-[var(--african-cream)] bg-opacity-95">
-                <p className="text-[var(--african-green-dark)] leading-relaxed font-medium">
+              <CardContent className="bg-[var(--elegant-white)] bg-opacity-95">
+                <p className="text-[var(--elegant-brown-dark)] leading-relaxed font-medium">
                  And then, there was the puppy. Victor, knowing Diana's love for dogs, surprised her with a mischievous little one. That pup brought chaos and laughter into the house and quickly became a beloved member of the family. Just like Victor did. Their story has always been about love built on friendship, understanding, and shared joy.
                 </p>
               </CardContent>
@@ -468,40 +312,36 @@ In the years that followed, they became friends. The kind of friends who laugh e
       </div>
     </section>
 
-    <section className="py-20 bg-[var(--african-cream)] relative overflow-hidden">
-      <div className="absolute inset-0 african-pattern-red opacity-5"></div>
-      <AfricanCornerDecoration corner="top-right" className="opacity-60" />
-      <AfricanCornerDecoration corner="bottom-left" className="opacity-60" />
+    <section className="py-20 bg-[var(--elegant-white)] relative overflow-hidden">
       <div className="container mx-auto px-4 max-w-4xl relative z-10">
         <div className="text-center mb-16 pattern-animation">
-          <h2 className="font-serif text-4xl md:text-5xl text-[var(--african-green-dark)] mb-4 african-text-shadow">Wedding Details</h2>
-          <p className="text-xl text-[var(--african-green-dark)] font-medium">Join us for a celebration of love and unity</p>
+          <h2 className="font-serif text-4xl md:text-5xl text-[var(--elegant-gold)] mb-4 gold-text-shadow">Wedding Details</h2>
+          <p className="text-xl text-[var(--elegant-brown-dark)] font-medium">Join us for a celebration of love and unity</p>
         </div>
         
         <div className="mb-12">
-          <Card className="border-2 border-[var(--african-green)] shadow-2xl african-glass-green transform hover:scale-105 transition-all duration-300 max-w-5xl mx-auto">
-            <CardHeader className="african-gradient-green">
-              <CardTitle className="flex items-center justify-center space-x-3 text-[var(--african-cream)]">
+          <Card className="border-2 border-[var(--elegant-gold)] shadow-2xl elegant-glass-gold transform hover:scale-105 transition-all duration-300 max-w-5xl mx-auto">
+            <CardHeader className="elegant-gradient-gold">
+              <CardTitle className="flex items-center justify-center space-x-3 text-[var(--elegant-brown-dark)]">
                 <MapPin className="h-8 w-8 float-animation" />
-                <span className="african-text-shadow text-3xl">Venue</span>
+                <span className="elegant-text-shadow text-3xl">Venue</span>
               </CardTitle>
             </CardHeader>
-            <CardContent className="pt-8 space-y-6 bg-[var(--african-cream)] bg-opacity-95">
+            <CardContent className="pt-8 space-y-6 bg-[var(--elegant-white)] bg-opacity-95">
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="flex items-center space-x-4">
-                  <Clock className="h-8 w-8 text-[var(--african-red)] flex-shrink-0" />
+                  <Clock className="h-8 w-8 text-[var(--elegant-gold)] flex-shrink-0" />
                 <div>
-                    <p className="font-bold text-[var(--african-green-dark)] text-xl">Saturday, November 29, 2025</p>
-                    <p className="text-[var(--african-green-dark)] font-medium text-lg">16:00 - 00:00</p>
+                    <p className="font-bold text-[var(--elegant-brown-dark)] text-xl">Saturday, November 29, 2025</p>
+                    <p className="text-[var(--elegant-brown-dark)] font-medium text-lg">16:00 - 00:00</p>
               </div>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <Calendar className="h-8 w-8 text-[var(--african-red)] mt-1 flex-shrink-0" />
+                  <Calendar className="h-8 w-8 text-[var(--elegant-gold)] mt-1 flex-shrink-0" />
                 <div>
-                    {/* <p className="font-bold text-[var(--african-green-dark)] text-xl">Casa Social De Madeira</p> */}
-                    <a href="https://maps.app.goo.gl/ycymZbvMzYfXh5FBA" className="font-semibold text-[#c4403e] hover:text-amber-600 transition-colors">Casa Social De Madeira</a>
-                    <p className="text-[var(--african-green-dark)] font-medium text-lg">34 Boschkop Rd, Zwavelpoort</p>
-                    <p className="text-base text-[var(--african-green)] italic mt-2">A beautiful ceremony surrounded by family and friends</p>
+                    <a href="https://maps.app.goo.gl/ycymZbvMzYfXh5FBA" className="font-semibold text-[var(--elegant-gold)] hover:text-[var(--elegant-gold-dark)] transition-colors">Casa Social De Madeira</a>
+                    <p className="text-[var(--elegant-brown-dark)] font-medium text-lg">34 Boschkop Rd, Zwavelpoort</p>
+                    <p className="text-base text-[var(--elegant-brown)] italic mt-2">A beautiful ceremony surrounded by family and friends</p>
               </div>
                 </div>
               </div>
@@ -554,31 +394,32 @@ In the years that followed, they became friends. The kind of friends who laugh e
 
 
 const renderRegistry = () => (
-  <section className="py-20 african-gradient-warm relative overflow-hidden">
-    <div className="absolute inset-0 african-pattern-green opacity-5"></div>
-    <AfricanCornerDecoration corner="top-left" className="opacity-60" />
-    <AfricanCornerDecoration corner="bottom-right" className="opacity-60" />
+  <section className="py-20 bg-[var(--elegant-beige)] relative overflow-hidden">
     <div className="container mx-auto px-4 max-w-6xl relative z-10">
       <div className="text-center mb-12 pattern-animation">
-        <h2 className="font-serif text-4xl md:text-5xl text-[#2a4b39] mb-4 african-text-shadow">Gift Registry</h2>
+        <h2 className="font-serif text-4xl md:text-5xl text-[var(--elegant-gold)] mb-4 gold-text-shadow">Gift Registry</h2>
         {/* <p className="text-xl text-[#2a4b39] max-w-3xl mx-auto font-medium">
           Your presence at our wedding is the greatest gift of all. However, if you wish to honor us with a gift, 
           we've curated these registries and experiences to help us begin our new journey together.
         </p> */}
       </div>
 
-      <div className="text-center mt-12 african-glass p-8 rounded-2xl max-w-3xl mx-auto">
-        <h3 className="font-serif text-2xl text-[#2a4b39] mb-4 african-text-shadow">With Gratitude</h3>
-        <p className="text-[#3d6852] text-lg font-medium mb-4">
+      <div className="text-center mt-12 elegant-glass p-8 rounded-2xl max-w-3xl mx-auto">
+        <h3 className="font-serif text-2xl text-[var(--elegant-gold)] mb-4 gold-text-shadow">With Gratitude</h3>
+        <p className="text-[var(--elegant-brown)] text-lg font-medium mb-4">
           Your presence at our wedding is truly the greatest gift we could ask for. Any additional gifts you choose to give will be treasured as we build our life together.
         </p>
-        <p className="text-[#c4403e] font-medium">
+        <p className="text-[var(--elegant-gold-dark)] font-medium">
           Thank you for being part of our special day and for your love and support.
         </p>
-        <div className="mt-6 flex justify-center space-x-2">
-          <Heart className="h-6 w-6 text-[#c4403e] float-animation" />
-          <span className="text-[#2a4b39] font-serif text-lg african-text-shadow">Diana & Victor</span>
-          <Heart className="h-6 w-6 text-[#c4403e] float-animation" style={{animationDelay: '1s'}} />
+        <div className="mt-6 flex justify-center">
+          <Image
+            src="/logo.png"
+            alt="Diana & Victor"
+            width={150}
+            height={75}
+            className="object-contain float-animation"
+          />
         </div>
       </div>
       
@@ -600,25 +441,25 @@ const renderRegistry = () => (
       </div>
       
       <div className="mb-12 mt-15">
-        <h3 className="font-serif text-2xl text-[#2a4b39] mb-8 text-center african-text-shadow">Our Curated Registries</h3>
+        <h3 className="font-serif text-2xl text-[var(--elegant-gold)] mb-8 text-center gold-text-shadow">Our Curated Registries</h3>
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           
           {/* Le Creuset Registry */}
-          <Card className="border-2 border-[#3d6852] shadow-2xl african-glass-green transform hover:scale-105 transition-all duration-300 hover:rotate-1">
-            <CardHeader className="african-gradient-green text-center">
-              <CardTitle className="flex items-center justify-center space-x-2 text-[#f8f5f0]">
+          <Card className="border-2 border-[var(--elegant-gold)] shadow-2xl elegant-glass-gold transform hover:scale-105 transition-all duration-300 hover:rotate-1">
+            <CardHeader className="elegant-gradient-gold text-center">
+              <CardTitle className="flex items-center justify-center space-x-2 text-[var(--elegant-brown-dark)]">
                 <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNSg4CTX1Oqwzq-oQW5fH172BpQTsv1ribNw&s" alt="Le Creuset" width={24} height={24} />
-                <span className="african-text-shadow text-xl">Le Creuset</span>
+                <span className="elegant-text-shadow text-xl">Le Creuset</span>
               </CardTitle>
             </CardHeader>
-            <CardContent className="pt-6 space-y-4 bg-[#f8f5f0] bg-opacity-95 text-center">
-              <h4 className="font-bold text-[#2a4b39] text-lg">Premium Cookware & Kitchen Essentials</h4>
-              <p className="text-[#3d6852] text-sm">
+            <CardContent className="pt-6 space-y-4 bg-[var(--elegant-white)] bg-opacity-95 text-center">
+              <h4 className="font-bold text-[var(--elegant-brown-dark)] text-lg">Premium Cookware & Kitchen Essentials</h4>
+              <p className="text-[var(--elegant-brown)] text-sm">
                 Discover our selection of high-quality cookware, bakeware, and kitchen accessories from the renowned French brand Le Creuset.
               </p>
               <Button 
                 onClick={() => window.open('https://www.lecreuset.co.za/gift-registry.html?mrrid=4929886', '_blank')}
-                className="w-full african-gradient-green hover:african-gradient-red text-[#f8f5f0] transform hover:scale-105 transition-all duration-300 african-text-shadow"
+                className="w-full elegant-gradient-gold hover:elegant-gradient-brown text-[var(--elegant-brown-dark)] transform hover:scale-105 transition-all duration-300 gold-text-shadow"
               >
                 View Registry
               </Button>
@@ -626,21 +467,21 @@ const renderRegistry = () => (
           </Card>
 
           {/* Yuppiechef Registry */}
-          <Card className="border-2 border-[#c4403e] shadow-2xl african-glass-red transform hover:scale-105 transition-all duration-300 hover:rotate-1">
-            <CardHeader className="african-gradient-red text-center">
-              <CardTitle className="flex items-center justify-center space-x-2 text-[#f8f5f0]">
+          <Card className="border-2 border-[var(--elegant-brown)] shadow-2xl elegant-glass-brown transform hover:scale-105 transition-all duration-300 hover:rotate-1">
+            <CardHeader className="elegant-gradient-brown text-center">
+              <CardTitle className="flex items-center justify-center space-x-2 text-[var(--elegant-cream)]">
               <Image src="https://upload.wikimedia.org/wikipedia/en/e/e1/Yuppiechef_Logo.png" alt="Le Creuset" width={24} height={24} />
-                <span className="african-text-shadow text-xl">Yuppiechef</span>
+                <span className="elegant-text-shadow text-xl">Yuppiechef</span>
               </CardTitle>
             </CardHeader>
-            <CardContent className="pt-6 space-y-4 bg-[#f8f5f0] bg-opacity-95 text-center">
-              <h4 className="font-bold text-[#2a4b39] text-lg">Kitchen & Home Appliances</h4>
-              <p className="text-[#c4403e] text-sm">
+            <CardContent className="pt-6 space-y-4 bg-[var(--elegant-white)] bg-opacity-95 text-center">
+              <h4 className="font-bold text-[var(--elegant-brown-dark)] text-lg">Kitchen & Home Appliances</h4>
+              <p className="text-[var(--elegant-brown)] text-sm">
                 Find everything you need for the modern kitchen and home, from small appliances to gourmet ingredients and homeware.
               </p>
               <Button 
                 onClick={() => window.open('http://www.yuppiechef.com/yc8796034', '_blank')}
-                className="w-full african-gradient-red hover:african-gradient-green text-[#f8f5f0] transform hover:scale-105 transition-all duration-300 african-text-shadow"
+                className="w-full elegant-gradient-brown hover:elegant-gradient-gold text-[var(--elegant-cream)] transform hover:scale-105 transition-all duration-300 elegant-text-shadow"
               >
                 View Registry
               </Button>
@@ -648,24 +489,24 @@ const renderRegistry = () => (
           </Card>
 
           {/* Mr Price Home Registry */}
-          <Card className="border-2 border-[#d4a574] shadow-2xl african-glass transform hover:scale-105 transition-all duration-300 hover:rotate-1">
-            <CardHeader className="african-gradient-warm text-center">
-              <CardTitle className="flex items-center justify-center space-x-2 text-[#2a4b39]">
+          <Card className="border-2 border-[var(--elegant-gold)] shadow-2xl elegant-glass transform hover:scale-105 transition-all duration-300 hover:rotate-1">
+            <CardHeader className="elegant-gradient-cream text-center">
+              <CardTitle className="flex items-center justify-center space-x-2 text-[var(--elegant-brown-dark)]">
               <Image src="https://www.inspiredlivingsa.co.za/wp-content/uploads/2013/11/MRPHOME-LOGOWHITE.jpg" alt="Mr Price Home" width={24} height={24} />
-                <span className="african-text-shadow text-xl">Mr Price Home</span>
+                <span className="elegant-text-shadow text-xl">Mr Price Home</span>
               </CardTitle>
         </CardHeader>
-            <CardContent className="pt-6 space-y-4 bg-[#f8f5f0] bg-opacity-95 text-center">
-              <h4 className="font-bold text-[#2a4b39] text-lg">Home Decor & Essentials</h4>
-              <p className="text-[#d4a574] text-sm">
+            <CardContent className="pt-6 space-y-4 bg-[var(--elegant-white)] bg-opacity-95 text-center">
+              <h4 className="font-bold text-[var(--elegant-brown-dark)] text-lg">Home Decor & Essentials</h4>
+              <p className="text-[var(--elegant-gold-dark)] text-sm">
                 Stylish and affordable home decor, furniture, and household essentials to help us create our perfect home together.
               </p>
               <div className="mb-3">
-                <p className="text-xs text-[#2a4b39] font-medium">Registry ID: <span className="font-bold text-[#d4a574]">DWWEDD4381</span></p>
+                <p className="text-xs text-[var(--elegant-brown-dark)] font-medium">Registry ID: <span className="font-bold text-[var(--elegant-gold)]">DWWEDD4381</span></p>
               </div>
               <Button 
                 onClick={() => window.open('https://www.mrphome.com/en_za/giftregistry/view/index/id/DWWEDD4381', '_blank')}
-                className="w-full african-gradient-warm hover:african-gradient-red text-[#2a4b39] hover:text-[#f8f5f0] transform hover:scale-105 transition-all duration-300 african-text-shadow border-2 border-[#d4a574]"
+                className="w-full elegant-gradient-cream hover:elegant-gradient-gold text-[var(--elegant-brown-dark)] transform hover:scale-105 transition-all duration-300 elegant-text-shadow border-2 border-[var(--elegant-gold)]"
               >
                 View Registry
               </Button>
@@ -675,59 +516,59 @@ const renderRegistry = () => (
             </div>
             
       {/* Cash Contributions Section */}
-      <Card className="border-2 border-[#3d6852] african-glass-green shadow-2xl max-w-4xl mx-auto">
-        <CardHeader className="african-gradient-green text-center">
-          <CardTitle className="flex items-center justify-center space-x-3 text-[#f8f5f0]">
+      <Card className="border-2 border-[var(--elegant-gold)] elegant-glass-gold shadow-2xl max-w-4xl mx-auto">
+        <CardHeader className="elegant-gradient-gold text-center">
+          <CardTitle className="flex items-center justify-center space-x-3 text-[var(--elegant-brown-dark)]">
             <Gift className="h-8 w-8 float-animation" />
-            <span className="african-text-shadow text-2xl">Cash Contributions</span>
+            <span className="elegant-text-shadow text-2xl">Cash Contributions</span>
           </CardTitle>
         </CardHeader>
-        <CardContent className="pt-8 space-y-6 bg-[#f8f5f0] bg-opacity-95">
-          <p className="text-center text-[#2a4b39] font-medium text-lg mb-6">
+        <CardContent className="pt-8 space-y-6 bg-[var(--elegant-white)] bg-opacity-95">
+          <p className="text-center text-[var(--elegant-brown-dark)] font-medium text-lg mb-6">
             For those who prefer to give cash gifts, we've made it easy with our banking details below
           </p>
           
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="african-glass p-6 rounded-xl border-2 border-[#d4a574]">
-              <h4 className="font-bold text-[#2a4b39] text-lg mb-4 african-text-shadow">Bank Information</h4>
+            <div className="elegant-glass p-6 rounded-xl border-2 border-[var(--elegant-gold)]">
+              <h4 className="font-bold text-[var(--elegant-brown-dark)] text-lg mb-4 elegant-text-shadow">Bank Information</h4>
               <div className="space-y-2">
                 <div className="flex justify-between">
-                  <span className="text-[#3d6852] font-medium">Bank Name:</span>
-                  <span className="text-[#2a4b39] font-bold">Standard Bank</span>
+                  <span className="text-[var(--elegant-brown)] font-medium">Bank Name:</span>
+                  <span className="text-[var(--elegant-brown-dark)] font-bold">Standard Bank</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-[#3d6852] font-medium">Branch:</span>
-                  <span className="text-[#2a4b39] font-bold">Centurion Lifestyle</span>
+                  <span className="text-[var(--elegant-brown)] font-medium">Branch:</span>
+                  <span className="text-[var(--elegant-brown-dark)] font-bold">Centurion Lifestyle</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-[#3d6852] font-medium">Branch Code:</span>
-                  <span className="text-[#2a4b39] font-bold">2645</span>
+                  <span className="text-[var(--elegant-brown)] font-medium">Branch Code:</span>
+                  <span className="text-[var(--elegant-brown-dark)] font-bold">2645</span>
             </div>
             </div>
             </div>
             
-            <div className="african-glass p-6 rounded-xl border-2 border-[#c4403e]">
-              <h4 className="font-bold text-[#2a4b39] text-lg mb-4 african-text-shadow">Account Details</h4>
+            <div className="elegant-glass p-6 rounded-xl border-2 border-[var(--elegant-gold)]">
+              <h4 className="font-bold text-[var(--elegant-brown-dark)] text-lg mb-4 elegant-text-shadow">Account Details</h4>
               <div className="space-y-2">
                 <div className="flex justify-between">
-                  <span className="text-[#c4403e] font-medium">Account Name:</span>
-                  <span className="text-[#2a4b39] font-bold text-sm">Diana Mawoko/Victor Sitanimezi</span>
+                  <span className="text-[var(--elegant-gold-dark)] font-medium">Account Name:</span>
+                  <span className="text-[var(--elegant-brown-dark)] font-bold text-sm">Diana Mawoko/Victor Sitanimezi</span>
             </div>
                 <div className="flex justify-between">
-                  <span className="text-[#c4403e] font-medium">Account Number:</span>
-                  <span className="text-[#2a4b39] font-bold">10240912622</span>
+                  <span className="text-[var(--elegant-gold-dark)] font-medium">Account Number:</span>
+                  <span className="text-[var(--elegant-brown-dark)] font-bold">10240912622</span>
     </div>
                 <div className="flex justify-between">
-                  <span className="text-[#c4403e] font-medium">Account Type:</span>
-                  <span className="text-[#2a4b39] font-bold">Current</span>
+                  <span className="text-[var(--elegant-gold-dark)] font-medium">Account Type:</span>
+                  <span className="text-[var(--elegant-brown-dark)] font-bold">Current</span>
                 </div>
               </div>
               </div>
       </div>
       
-          <div className="text-center african-glass p-4 rounded-xl border-2 border-[#d4a574]">
-            <h4 className="font-bold text-[#2a4b39] mb-2 african-text-shadow">Payment Reference</h4>
-            <p className="text-[#d4a574] font-medium">Suggested Reference: <span className="text-[#2a4b39] font-bold">Your name and surname</span></p>
+          <div className="text-center elegant-glass p-4 rounded-xl border-2 border-[var(--elegant-gold)]">
+            <h4 className="font-bold text-[var(--elegant-brown-dark)] mb-2 elegant-text-shadow">Payment Reference</h4>
+            <p className="text-[var(--elegant-gold-dark)] font-medium">Suggested Reference: <span className="text-[var(--elegant-brown-dark)] font-bold">Your name and surname</span></p>
           </div>
         </CardContent>
       </Card>
@@ -739,20 +580,16 @@ const renderRegistry = () => (
 )
 
 const renderDressCode = () => (
-  <section className="py-20 bg-[#f8f5f0] relative overflow-hidden">
-    <div className="absolute inset-0 african-pattern-red opacity-8"></div>
-    <AfricanTextileOverlay className="opacity-20" />
-    <AfricanCornerDecoration corner="top-right" className="opacity-70" />
-    <AfricanCornerDecoration corner="bottom-left" className="opacity-70" />
+  <section className="py-20 bg-[var(--elegant-white)] relative overflow-hidden">
     <div className="container mx-auto px-4 max-w-6xl relative z-10">
       <div className="text-center mb-12 pattern-animation">
-        <h2 className="font-serif text-4xl md:text-5xl text-[#2a4b39] mb-4 african-text-shadow">Dress Code & Uniforms</h2>
-        <p className="text-xl text-[#2a4b39] font-medium mb-6">
+        <h2 className="font-serif text-4xl md:text-5xl text-[var(--elegant-gold)] mb-4 gold-text-shadow">Dress Code & Uniforms</h2>
+        <p className="text-xl text-[var(--elegant-brown-dark)] font-medium mb-6">
           Celebrating our heritage with elegance and unity
         </p>
-        <div className="african-glass p-6 rounded-2xl max-w-4xl mx-auto">
-          <p className="text-lg text-[#2a4b39] font-medium leading-relaxed">
-            Uniforms are available for purchase based on who invited you - either the <span className="font-bold text-[#3d6852]">Mawoko's (Green and Red)</span> or the <span className="font-bold text-[#2b4a84]">Sitanimezi's (Navy Blue)</span>. While wearing a uniform is not mandatory, it is warmly encouraged to help us celebrate in unity.
+        <div className="elegant-glass p-6 rounded-2xl max-w-4xl mx-auto">
+          <p className="text-lg text-[var(--elegant-brown-dark)] font-medium leading-relaxed">
+            Uniforms are available for purchase based on who invited you - either the <span className="font-bold text-[var(--elegant-brown)]">Mawoko's (Green and Red)</span> or the <span className="font-bold text-[var(--elegant-gold-dark)]">Sitanimezi's (Navy Blue)</span>. While wearing a uniform is not mandatory, it is warmly encouraged to help us celebrate in unity.
           </p>
         </div>
       </div>
@@ -972,39 +809,42 @@ const renderDressCode = () => (
 return (
   <div className="min-h-screen bg-white">
     {renderNavigation()}
-    <main className="pt-16">
+    <main className="pt-16 md:pt-20 pb-16 md:pb-0">
       {activeSection === 'home' && renderHome()}
       {activeSection === 'registry' && renderRegistry()}
       {activeSection === 'dresscode' && renderDressCode()}
     </main>
     
-    <footer className="african-gradient-warm relative overflow-hidden py-16">
-      <div className="absolute inset-0 african-pattern-green opacity-10"></div>
+    <footer className="bg-[var(--elegant-beige)] relative overflow-hidden py-16">
       <div className="container mx-auto px-4 text-center relative z-10">
-        <div className="flex items-center justify-center space-x-3 mb-6">
-          <Heart className="h-8 w-8 text-[var(--african-red)] float-animation" />
-          <span className="font-serif text-3xl text-[var(--african-green-dark)] african-text-shadow">Diana & Victor</span>
-          <Heart className="h-8 w-8 text-[var(--african-red)] float-animation" style={{animationDelay: '1s'}} />
+        <div className="flex justify-center mb-6">
+          <Image
+            src="/logo.png"
+            alt="Diana & Victor"
+            width={200}
+            height={100}
+            className="object-contain float-animation"
+          />
         </div>
-        <div className="african-glass p-6 rounded-2xl max-w-2xl mx-auto mb-6">
-          <p className="text-[var(--african-green-dark)] mb-4 text-lg font-medium">November 29, 2025 • Pretoria, South Africa</p>
-          <p className="text-[var(--african-green)] text-base african-text-shadow">
+        <div className="elegant-glass p-6 rounded-2xl max-w-2xl mx-auto mb-6">
+          <p className="text-[var(--elegant-brown-dark)] mb-4 text-lg font-medium">November 29, 2025 • Pretoria, South Africa</p>
+          <p className="text-[var(--elegant-brown)] text-base elegant-text-shadow">
           We can't wait to celebrate with you!
         </p>
         </div>
-        <div className="african-glass p-4 rounded-xl max-w-xl mx-auto">
-          <p className="text-sm text-[var(--african-green-dark)] font-medium">
+        <div className="elegant-glass p-4 rounded-xl max-w-xl mx-auto">
+          <p className="text-sm text-[var(--elegant-brown-dark)] font-medium">
             For questions, please contact us at 
             <br className="sm:hidden" />
-            <span className="text-[var(--african-red)] font-semibold"> weddingdianavictor@gmail.com</span>
+            <span className="text-[var(--elegant-gold)] font-semibold"> weddingdianavictor@gmail.com</span>
             <br className="sm:hidden" /><span> or 
-            <span className="text-[var(--african-red)] font-semibold"> +27 79 246 8279</span></span>
+            <span className="text-[var(--elegant-gold)] font-semibold"> +27 79 246 8279</span></span>
           </p>
         </div>
         <div className="mt-8 flex justify-center space-x-4">
-          <div className="w-3 h-3 bg-[var(--african-gold)] rounded-full animate-pulse"></div>
-          <div className="w-3 h-3 bg-[var(--african-red)] rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
-          <div className="w-3 h-3 bg-[var(--african-green)] rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
+          <div className="w-3 h-3 bg-[var(--elegant-gold)] rounded-full animate-pulse"></div>
+          <div className="w-3 h-3 bg-[var(--elegant-brown)] rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
+          <div className="w-3 h-3 bg-[var(--elegant-gold-dark)] rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
         </div>
       </div>
     </footer>

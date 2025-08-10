@@ -3,75 +3,89 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Elegant Wedding Theme - Inspired by the attached image */
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  /* Sophisticated Color Palette */
+  --elegant-cream: #FAF7F2;      /* Main background - warm cream */
+  --elegant-beige: #F5F1EB;      /* Secondary background */
+  --elegant-gold: #D4AF37;       /* Primary gold accent */
+  --elegant-gold-light: #E6C757; /* Lighter gold */
+  --elegant-gold-dark: #B8941F;  /* Darker gold */
+  --elegant-brown: #8B7355;      /* Rich brown text */
+  --elegant-brown-dark: #6D5940; /* Darker brown */
+  --elegant-brown-light: #A68B5B; /* Lighter brown */
+  --elegant-white: #FEFDFB;      /* Pure elegant white */
+  --elegant-border: #E8E3DC;     /* Subtle borders */
+
+  /* Design System Variables */
+  --background: var(--elegant-cream);
+  --foreground: var(--elegant-brown-dark);
+  --card: var(--elegant-white);
+  --card-foreground: var(--elegant-brown-dark);
+  --popover: var(--elegant-white);
+  --popover-foreground: var(--elegant-brown-dark);
+  --primary: var(--elegant-gold);
+  --primary-foreground: var(--elegant-brown-dark);
+  --secondary: var(--elegant-beige);
+  --secondary-foreground: var(--elegant-brown-dark);
+  --muted: var(--elegant-beige);
+  --muted-foreground: var(--elegant-brown);
+  --accent: var(--elegant-gold);
+  --accent-foreground: var(--elegant-brown-dark);
+  --destructive: #DC2626;
+  --destructive-foreground: var(--elegant-white);
+  --border: var(--elegant-border);
+  --input: var(--elegant-beige);
+  --ring: var(--elegant-gold);
+  --chart-1: var(--elegant-gold);
+  --chart-2: var(--elegant-brown);
+  --chart-3: var(--elegant-gold-light);
+  --chart-4: var(--elegant-brown-light);
+  --chart-5: var(--elegant-gold-dark);
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar: var(--elegant-cream);
+  --sidebar-foreground: var(--elegant-brown-dark);
+  --sidebar-primary: var(--elegant-gold);
+  --sidebar-primary-foreground: var(--elegant-brown-dark);
+  --sidebar-accent: var(--elegant-beige);
+  --sidebar-accent-foreground: var(--elegant-brown-dark);
+  --sidebar-border: var(--elegant-border);
+  --sidebar-ring: var(--elegant-gold);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --background: #2A2520;
+  --foreground: var(--elegant-cream);
+  --card: #332B24;
+  --card-foreground: var(--elegant-cream);
+  --popover: #332B24;
+  --popover-foreground: var(--elegant-cream);
+  --primary: var(--elegant-gold-light);
+  --primary-foreground: #2A2520;
+  --secondary: #3D3429;
+  --secondary-foreground: var(--elegant-cream);
+  --muted: #3D3429;
+  --muted-foreground: #A8A193;
+  --accent: var(--elegant-gold-light);
+  --accent-foreground: #2A2520;
+  --destructive: #EF4444;
+  --destructive-foreground: var(--elegant-cream);
+  --border: #3D3429;
+  --input: #3D3429;
+  --ring: var(--elegant-gold-light);
+  --chart-1: var(--elegant-gold-light);
+  --chart-2: var(--elegant-brown-light);
+  --chart-3: var(--elegant-gold);
+  --chart-4: var(--elegant-brown);
+  --chart-5: var(--elegant-gold-dark);
+  --sidebar: #332B24;
+  --sidebar-foreground: var(--elegant-cream);
+  --sidebar-primary: var(--elegant-gold-light);
+  --sidebar-primary-foreground: #2A2520;
+  --sidebar-accent: #3D3429;
+  --sidebar-accent-foreground: var(--elegant-cream);
+  --sidebar-border: #3D3429;
+  --sidebar-ring: var(--elegant-gold-light);
 }
 
 @theme inline {
@@ -119,5 +133,6 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: 'Playfair Display', 'Georgia', serif;
   }
 }

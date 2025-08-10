@@ -3,100 +3,102 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* African Textile Inspired Color Palette */
+/* Elegant Wedding Theme - Sophisticated Color Palette */
 :root {
   /* Font configuration */
-  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), monospace;
+  --font-serif: 'Playfair Display', 'Georgia', serif;
+  --font-sans: 'Inter', 'system-ui', sans-serif;
   
-  /* Primary Colors from the textile */
-  --african-green: #3d6852;  /* Rich forest green */
-  --african-green-light: #5a8268;  /* Lighter green */
-  --african-green-dark: #2a4b39;   /* Darker green */
-  --african-red: #c4403e;     /* Deep crimson red */
-  --african-red-light: #d66058;     /* Lighter red */
-  --african-red-dark: #a22b2a;      /* Darker red */
-  --african-cream: #f8f5f0;   /* Warm cream */
-  --african-gold: #d4a574;    /* Golden accent */
+  /* Elegant Color Palette matching the attached image */
+  --elegant-cream: #FAF7F2;      /* Main background - warm cream */
+  --elegant-beige: #F5F1EB;      /* Secondary background */
+  --elegant-gold: #D4AF37;       /* Primary gold accent */
+  --elegant-gold-light: #E6C757; /* Lighter gold */
+  --elegant-gold-dark: #B8941F;  /* Darker gold */
+  --elegant-brown: #8B7355;      /* Rich brown text */
+  --elegant-brown-dark: #6D5940; /* Darker brown */
+  --elegant-brown-light: #A68B5B; /* Lighter brown */
+  --elegant-white: #FEFDFB;      /* Pure elegant white */
+  --elegant-border: #E8E3DC;     /* Subtle borders */
   
-  /* Updated design system */
-  --background: var(--african-cream);
-  --foreground: #1a1a1a;
-  --card: #fcfaf8;
-  --card-foreground: #1a1a1a;
-  --popover: #fcfaf8;
-  --popover-foreground: #1a1a1a;
-  --primary: var(--african-green);
-  --primary-foreground: var(--african-cream);
-  --secondary: var(--african-red);
-  --secondary-foreground: var(--african-cream);
-  --muted: #f0ede8;
-  --muted-foreground: #666666;
-  --accent: var(--african-gold);
-  --accent-foreground: #1a1a1a;
-  --destructive: #dc2626;
-  --destructive-foreground: var(--african-cream);
-  --border: #d4cfc7;
-  --input: #f8f5f0;
-  --ring: var(--african-green);
-  --chart-1: var(--african-green);
-  --chart-2: var(--african-red);
-  --chart-3: var(--african-gold);
-  --chart-4: var(--african-green-light);
-  --chart-5: var(--african-red-light);
+  /* Design System Variables */
+  --background: var(--elegant-cream);
+  --foreground: var(--elegant-brown-dark);
+  --card: var(--elegant-white);
+  --card-foreground: var(--elegant-brown-dark);
+  --popover: var(--elegant-white);
+  --popover-foreground: var(--elegant-brown-dark);
+  --primary: var(--elegant-gold);
+  --primary-foreground: var(--elegant-brown-dark);
+  --secondary: var(--elegant-beige);
+  --secondary-foreground: var(--elegant-brown-dark);
+  --muted: var(--elegant-beige);
+  --muted-foreground: var(--elegant-brown);
+  --accent: var(--elegant-gold);
+  --accent-foreground: var(--elegant-brown-dark);
+  --destructive: #DC2626;
+  --destructive-foreground: var(--elegant-white);
+  --border: var(--elegant-border);
+  --input: var(--elegant-beige);
+  --ring: var(--elegant-gold);
+  --chart-1: var(--elegant-gold);
+  --chart-2: var(--elegant-brown);
+  --chart-3: var(--elegant-gold-light);
+  --chart-4: var(--elegant-brown-light);
+  --chart-5: var(--elegant-gold-dark);
   --radius: 0.75rem;
-  --sidebar: var(--african-cream);
-  --sidebar-foreground: #1a1a1a;
-  --sidebar-primary: var(--african-green);
-  --sidebar-primary-foreground: var(--african-cream);
-  --sidebar-accent: #f0ede8;
-  --sidebar-accent-foreground: #1a1a1a;
-  --sidebar-border: #d4cfc7;
-  --sidebar-ring: var(--african-green);
+  --sidebar: var(--elegant-cream);
+  --sidebar-foreground: var(--elegant-brown-dark);
+  --sidebar-primary: var(--elegant-gold);
+  --sidebar-primary-foreground: var(--elegant-brown-dark);
+  --sidebar-accent: var(--elegant-beige);
+  --sidebar-accent-foreground: var(--elegant-brown-dark);
+  --sidebar-border: var(--elegant-border);
+  --sidebar-ring: var(--elegant-gold);
 }
 
 /* Base font styles */
 html {
-  font-family: var(--font-sans);
+  font-family: var(--font-serif);
 }
 
 body {
-  font-family: var(--font-sans);
+  font-family: var(--font-serif);
 }
 
 .dark {
-  --background: #1a2821;
-  --foreground: var(--african-cream);
-  --card: #1f2d26;
-  --card-foreground: var(--african-cream);
-  --popover: #1f2d26;
-  --popover-foreground: var(--african-cream);
-  --primary: var(--african-green-light);
-  --primary-foreground: #1a2821;
-  --secondary: var(--african-red-light);
-  --secondary-foreground: #1a2821;
-  --muted: #243331;
-  --muted-foreground: #a8a8a8;
-  --accent: var(--african-gold);
-  --accent-foreground: #1a2821;
-  --destructive: #ef4444;
-  --destructive-foreground: var(--african-cream);
-  --border: #243331;
-  --input: #243331;
-  --ring: var(--african-green-light);
-  --chart-1: var(--african-green-light);
-  --chart-2: var(--african-red-light);
-  --chart-3: var(--african-gold);
-  --chart-4: var(--african-green);
-  --chart-5: var(--african-red);
-  --sidebar: #1f2d26;
-  --sidebar-foreground: var(--african-cream);
-  --sidebar-primary: var(--african-green-light);
-  --sidebar-primary-foreground: #1a2821;
-  --sidebar-accent: #243331;
-  --sidebar-accent-foreground: var(--african-cream);
-  --sidebar-border: #243331;
-  --sidebar-ring: var(--african-green-light);
+  --background: #2A2520;
+  --foreground: var(--elegant-cream);
+  --card: #332B24;
+  --card-foreground: var(--elegant-cream);
+  --popover: #332B24;
+  --popover-foreground: var(--elegant-cream);
+  --primary: var(--elegant-gold-light);
+  --primary-foreground: #2A2520;
+  --secondary: #3D3429;
+  --secondary-foreground: var(--elegant-cream);
+  --muted: #3D3429;
+  --muted-foreground: #A8A193;
+  --accent: var(--elegant-gold-light);
+  --accent-foreground: #2A2520;
+  --destructive: #EF4444;
+  --destructive-foreground: var(--elegant-cream);
+  --border: #3D3429;
+  --input: #3D3429;
+  --ring: var(--elegant-gold-light);
+  --chart-1: var(--elegant-gold-light);
+  --chart-2: var(--elegant-brown-light);
+  --chart-3: var(--elegant-gold);
+  --chart-4: var(--elegant-brown);
+  --chart-5: var(--elegant-gold-dark);
+  --sidebar: #332B24;
+  --sidebar-foreground: var(--elegant-cream);
+  --sidebar-primary: var(--elegant-gold-light);
+  --sidebar-primary-foreground: #2A2520;
+  --sidebar-accent: #3D3429;
+  --sidebar-accent-foreground: var(--elegant-cream);
+  --sidebar-border: #3D3429;
+  --sidebar-ring: var(--elegant-gold-light);
 }
 
 @theme {
@@ -138,193 +140,80 @@ body {
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-/* African Textile Pattern Backgrounds */
-.african-pattern-green {
-  background-image: 
-    radial-gradient(circle at 25% 25%, var(--african-green-light) 2px, transparent 2px),
-    radial-gradient(circle at 75% 75%, var(--african-green-dark) 1px, transparent 1px),
-    linear-gradient(45deg, var(--african-green) 25%, transparent 25%),
-    linear-gradient(-45deg, var(--african-green) 25%, transparent 25%);
-  background-size: 30px 30px, 20px 20px, 40px 40px, 40px 40px;
-  background-position: 0 0, 10px 10px, 0 0, 20px 20px;
-}
-
-.african-pattern-red {
-  background-image: 
-    radial-gradient(ellipse at center, var(--african-red-light) 30%, transparent 30%),
-    radial-gradient(ellipse at 50% 50%, var(--african-red-dark) 20%, transparent 20%);
-  background-size: 60px 40px, 80px 60px;
-  background-position: 0 0, 30px 20px;
-}
-
-.african-gradient-green {
+/* Clean Elegant Gradients - No patterns */
+.elegant-gradient-gold {
   background: linear-gradient(135deg, 
-    var(--african-green-light) 0%, 
-    var(--african-green) 50%, 
-    var(--african-green-dark) 100%);
+    var(--elegant-gold-light) 0%, 
+    var(--elegant-gold) 50%, 
+    var(--elegant-gold-dark) 100%);
 }
 
-.african-gradient-red {
+.elegant-gradient-cream {
   background: linear-gradient(135deg, 
-    var(--african-red-light) 0%, 
-    var(--african-red) 50%, 
-    var(--african-red-dark) 100%);
+    var(--elegant-white) 0%, 
+    var(--elegant-cream) 50%, 
+    var(--elegant-beige) 100%);
 }
 
-.african-gradient-warm {
+.elegant-gradient-brown {
   background: linear-gradient(135deg, 
-    var(--african-cream) 0%, 
-    var(--african-gold) 50%, 
-    var(--african-red-light) 100%);
+    var(--elegant-brown-light) 0%, 
+    var(--elegant-brown) 50%, 
+    var(--elegant-brown-dark) 100%);
 }
 
-/* Floating Animation for African Elements */
-@keyframes float-gentle {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-10px) rotate(2deg); }
+/* Gentle Animation Effects */
+@keyframes gentle-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
 }
 
-@keyframes float-pattern {
-  0%, 100% { transform: translateY(0px) scale(1); }
-  50% { transform: translateY(-5px) scale(1.02); }
-}
-
-@keyframes corner-image-float {
-  0%, 100% { 
-    transform: translateY(0px) scale(1);
-  }
-  50% { 
-    transform: translateY(-8px) scale(1.05);
-  }
-}
-
-@keyframes corner-image-glow {
-  0%, 100% { 
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-  }
-  50% { 
-    box-shadow: 0 15px 35px rgba(196, 64, 62, 0.3), 0 0 20px rgba(212, 165, 116, 0.2);
-  }
-}
-
-@keyframes corner-sparkle {
-  0%, 100% { 
-    transform: scale(1) rotate(0deg);
-    opacity: 0.8;
-  }
-  50% { 
-    transform: scale(1.2) rotate(180deg);
-    opacity: 1;
-  }
-}
-
-@keyframes gallery-drift {
-  0%, 100% { 
-    transform: translateX(0px) translateY(0px) scale(1);
-  }
-  25% { 
-    transform: translateX(3px) translateY(-2px) scale(1.02);
-  }
-  50% { 
-    transform: translateX(-2px) translateY(-4px) scale(1.05);
-  }
-  75% { 
-    transform: translateX(2px) translateY(-1px) scale(1.02);
-  }
+@keyframes elegant-fade {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
 }
 
 @keyframes subtle-glow {
   0%, 100% { 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
   }
   50% { 
-    box-shadow: 0 8px 25px rgba(196, 64, 62, 0.2), 0 0 15px rgba(212, 165, 116, 0.15);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
   }
 }
 
 .float-animation {
-  animation: float-gentle 6s ease-in-out infinite;
+  animation: gentle-float 4s ease-in-out infinite;
 }
 
-.pattern-animation {
-  animation: float-pattern 8s ease-in-out infinite;
+.elegant-fade-animation {
+  animation: elegant-fade 3s ease-in-out infinite;
 }
 
-.corner-image-animation {
-  animation: corner-image-float 4s ease-in-out infinite, corner-image-glow 3s ease-in-out infinite;
+.elegant-glow-animation {
+  animation: subtle-glow 3s ease-in-out infinite;
 }
 
-.gallery-drift-animation {
-  animation: gallery-drift 6s ease-in-out infinite, subtle-glow 4s ease-in-out infinite;
-}
-
-/* Corner image responsive styles */
-@media (max-width: 640px) {
-  .corner-image-container {
-    opacity: 0.85;
-  }
-  
-  .corner-image-container:hover {
-    opacity: 1;
-  }
-}
-
-/* Enhanced corner image effects */
-.corner-image-frame {
-  position: relative;
-  overflow: hidden;
-}
-
-.corner-image-frame::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(45deg, var(--african-gold), var(--african-red), var(--african-green));
-  border-radius: 1rem;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-.corner-image-frame:hover::before {
-  opacity: 0.7;
-}
-
-/* Gallery reveal effect */
-.gallery-reveal {
-  opacity: 0;
-  transform: scale(0.8) rotate(10deg);
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.corner-image-container:hover .gallery-reveal {
-  opacity: 1;
-  transform: scale(1) rotate(0deg);
-}
-
-/* Custom Glassmorphism with African Colors */
-.african-glass {
-  background: rgba(248, 245, 240, 0.15);
+/* Clean Glassmorphism Effects */
+.elegant-glass {
+  background: rgba(254, 253, 251, 0.8);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(248, 245, 240, 0.2);
+  border: 1px solid rgba(232, 227, 220, 0.3);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-.african-glass-green {
-  background: rgba(61, 104, 82, 0.15);
+.elegant-glass-gold {
+  background: rgba(212, 175, 55, 0.1);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(61, 104, 82, 0.2);
-  box-shadow: 0 8px 32px rgba(61, 104, 82, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  box-shadow: 0 8px 32px rgba(212, 175, 55, 0.1);
 }
 
-.african-glass-red {
-  background: rgba(196, 64, 62, 0.15);
+.elegant-glass-brown {
+  background: rgba(139, 115, 85, 0.1);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(196, 64, 62, 0.2);
-  box-shadow: 0 8px 32px rgba(196, 64, 62, 0.1);
+  border: 1px solid rgba(139, 115, 85, 0.2);
+  box-shadow: 0 8px 32px rgba(139, 115, 85, 0.1);
 }
 
 @layer base {
@@ -333,28 +222,27 @@ body {
   }
   body {
     @apply bg-background text-foreground;
-    background-image: 
-      radial-gradient(circle at 20% 80%, var(--african-green) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, var(--african-red) 0%, transparent 50%),
-      radial-gradient(circle at 40% 40%, var(--african-gold) 0%, transparent 30%);
-    background-size: 100% 100%;
-    background-attachment: fixed;
+    font-family: var(--font-serif);
+    /* Clean background - no patterns */
+    background: var(--elegant-cream);
   }
 }
 
-/* African-inspired text shadows and effects */
-.african-text-shadow {
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+/* Elegant Typography Effects */
+.elegant-text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.african-border-pattern {
-  border-image: linear-gradient(45deg, var(--african-green), var(--african-red), var(--african-gold)) 1;
-  border-width: 3px;
-  border-style: solid;
+.gold-text-shadow {
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.elegant-border {
+  border: 2px solid var(--elegant-gold);
 }
 
 /* Mobile Menu Animations */
-@keyframes mobile-menu-slide {
+@keyframes elegant-slide {
   from {
     opacity: 0;
     transform: translateY(-10px);
@@ -366,10 +254,10 @@ body {
 }
 
 .mobile-menu-enter {
-  animation: mobile-menu-slide 0.3s ease-out forwards;
+  animation: elegant-slide 0.3s ease-out forwards;
 }
 
-@keyframes mobile-menu-item-slide {
+@keyframes elegant-item-slide {
   from {
     opacity: 0;
     transform: translateX(-20px);
@@ -381,7 +269,7 @@ body {
 }
 
 .mobile-menu-item {
-  animation: mobile-menu-item-slide 0.4s ease-out forwards;
+  animation: elegant-item-slide 0.4s ease-out forwards;
   opacity: 0;
 }
 
@@ -390,66 +278,42 @@ body {
 .mobile-menu-item:nth-child(3) { animation-delay: 0.2s; }
 .mobile-menu-item:nth-child(4) { animation-delay: 0.25s; }
 
-/* New Creative Image Animations */
-@keyframes pulse-glow {
+/* Clean Image Animations */
+@keyframes elegant-pulse {
   0%, 100% {
     transform: scale(1);
-    box-shadow: 0 0 20px rgba(196, 64, 62, 0.4), 0 0 40px rgba(196, 64, 62, 0.2);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
   }
   50% {
-    transform: scale(1.05);
-    box-shadow: 0 0 30px rgba(196, 64, 62, 0.6), 0 0 60px rgba(196, 64, 62, 0.3);
+    transform: scale(1.02);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
   }
 }
 
-@keyframes bounce-rotate {
+@keyframes gentle-bounce {
   0%, 100% {
-    transform: translateY(0) rotate(0deg);
-  }
-  25% {
-    transform: translateY(-10px) rotate(2deg);
+    transform: translateY(0);
   }
   50% {
-    transform: translateY(-5px) rotate(-1deg);
-  }
-  75% {
-    transform: translateY(-15px) rotate(1deg);
+    transform: translateY(-8px);
   }
 }
 
-@keyframes shimmer-slide {
+@keyframes elegant-shimmer {
   0% {
-    transform: translateX(-100%) skewX(-15deg);
+    transform: translateX(-100%);
   }
   100% {
-    transform: translateX(300%) skewX(-15deg);
-  }
-}
-
-@keyframes heartbeat-zoom {
-  0%, 100% {
-    transform: scale(1) rotate(0deg);
-  }
-  14% {
-    transform: scale(1.1) rotate(1deg);
-  }
-  28% {
-    transform: scale(1) rotate(-1deg);
-  }
-  42% {
-    transform: scale(1.15) rotate(0deg);
-  }
-  70% {
-    transform: scale(1.05) rotate(0.5deg);
+    transform: translateX(300%);
   }
 }
 
 .pulse-glow-animation {
-  animation: pulse-glow 3s ease-in-out infinite;
+  animation: elegant-pulse 3s ease-in-out infinite;
 }
 
 .bounce-rotate-animation {
-  animation: bounce-rotate 4s ease-in-out infinite;
+  animation: gentle-bounce 3s ease-in-out infinite;
 }
 
 .shimmer-effect {
@@ -464,22 +328,53 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
-  animation: shimmer-slide 3s infinite;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+  animation: elegant-shimmer 3s infinite;
   z-index: 1;
 }
 
 .heartbeat-zoom-animation {
-  animation: heartbeat-zoom 2.5s ease-in-out infinite;
+  animation: elegant-pulse 2.5s ease-in-out infinite;
+}
+
+/* Corner image enhancements */
+.corner-image-container {
+  transition: all 0.3s ease;
+}
+
+.corner-image-frame {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.corner-image-frame:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
 }
 
 /* Mobile responsive adjustments */
 @media (max-width: 640px) {
   .corner-image-container {
-    opacity: 0.8;
+    opacity: 0.9;
   }
   
   .corner-image-frame {
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
   }
 }
+
+/* Pattern animation placeholder */
+.pattern-animation {
+  animation: gentle-float 6s ease-in-out infinite;
+}
+
+.corner-image-animation {
+  animation: gentle-float 4s ease-in-out infinite;
+}
+
+.gallery-drift-animation {
+  animation: gentle-bounce 5s ease-in-out infinite;
+}
+
+
