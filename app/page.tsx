@@ -199,14 +199,14 @@ const renderHome = () => (
           {/* Invitation Message */}
           <div className="text-center max-w-3xl mx-auto mb-16">
             <p className="text-xl md:text-2xl font-light text-[var(--elegant-brown-dark)] leading-relaxed mb-8">
-              We're celebrating our Traditional Wedding and Dot ceremony, and we would love for you to join us on our special day as we begin this beautiful journey together, honoring both our heritage and our future.
+              You are cordially invited to join us in celebrating our traditional wedding, a magnificent union where two cultures and worlds unite as one. It will be our great honor and joy to share this extraordinary day with you as we embark on our beautiful journey together.
             </p>
             
             <Button 
               onClick={() => window.open('https://tally.so/r/nPqb7V', '_blank')}
               className="bg-[var(--elegant-gold)] hover:bg-[var(--elegant-gold-dark)] text-white px-12 py-4 text-lg font-light tracking-wider transition-all duration-300 border-0 rounded-none min-w-[200px]"
             >
-              RSVP NOW
+              RSVP 
             </Button>
           </div>
           
@@ -407,10 +407,10 @@ const renderRegistry = () => (
       <div className="text-center mt-12 elegant-glass p-8 rounded-2xl max-w-3xl mx-auto">
         <h3 className="font-serif text-2xl text-[var(--elegant-gold)] mb-4 gold-text-shadow">With Gratitude</h3>
         <p className="text-[var(--elegant-brown)] text-lg font-medium mb-4">
-          Your presence at our wedding is truly the greatest gift we could ask for. Any additional gifts you choose to give will be treasured as we build our life together.
+          We are delighted to share this special day with you. Should you wish to honour our union with a gift, it will be received with sincere gratitude and cherished as we begin our life together.
         </p>
         <p className="text-[var(--elegant-gold-dark)] font-medium">
-          Thank you for being part of our special day and for your love and support.
+          To assist you, we have prepared a gift registry for your convenience.
         </p>
         <div className="mt-6 flex justify-center">
           <Image
@@ -583,7 +583,7 @@ const renderDressCode = () => (
   <section className="py-20 bg-[var(--elegant-white)] relative overflow-hidden">
     <div className="container mx-auto px-4 max-w-6xl relative z-10">
       <div className="text-center mb-12 pattern-animation">
-        <h2 className="font-serif text-4xl md:text-5xl text-[var(--elegant-gold)] mb-4 gold-text-shadow">Dress Code & Uniforms</h2>
+        <h2 className="font-serif text-4xl md:text-5xl text-[var(--elegant-gold)] mb-4 gold-text-shadow">Dress Code</h2>
         <p className="text-xl text-[var(--elegant-brown-dark)] font-medium mb-6">
           Celebrating our heritage with elegance and unity
         </p>
@@ -690,12 +690,12 @@ const renderDressCode = () => (
         <CardHeader className="african-gradient-green text-center">
           <CardTitle className="flex items-center justify-center space-x-3 text-[#f8f5f0]">
             <Gift className="h-8 w-8 float-animation" />
-            <span className="african-text-shadow text-2xl text-[var(--elegant-brown-dark)]">Uniform Payment Details</span>
+            <span className="african-text-shadow text-2xl text-[var(--elegant-brown-dark)]">Payment Details</span>
           </CardTitle>
         </CardHeader>
         <CardContent className="pt-8 space-y-6 bg-[#f8f5f0] bg-opacity-95">
           <p className="text-center text-[#2a4b39] font-medium text-lg mb-6">
-            To purchase your uniform, please use the following Standard Bank details
+            To purchase your material, please use the following Standard Bank details
           </p>
           
           <div className="grid md:grid-cols-2 gap-8">
@@ -738,7 +738,7 @@ const renderDressCode = () => (
           
           <div className="text-center african-glass p-4 rounded-xl border-2 border-[#d4a574]">
             <h4 className="font-bold text-[#2a4b39] mb-2 african-text-shadow">Payment Reference</h4>
-            <p className="text-[#d4a574] font-medium">Reference: <span className="text-[#2a4b39] font-bold">UNIFORM - Your Name - Family (Mawoko/Sitanimezi)</span></p>
+            <p className="text-[#d4a574] font-medium">Reference: Your Name - Family (Mawoko/Sitanimezi)</span></p>
           </div>
         </CardContent>
       </Card>
@@ -754,7 +754,7 @@ const renderDressCode = () => (
                 Delivery Process
               </h4>
               <p className="text-[#3d6852] font-medium">
-                Once payment and RSVP are confirmed, uniforms will be delivered accordingly. Please ensure you send us your contact details.
+                Once payment and RSVP are confirmed, the material will be delivered accordingly. Please ensure you send us your contact details.
               </p>
             </div>
             <div className="african-glass p-4 rounded-lg border border-[#2b4a84]">
@@ -763,7 +763,7 @@ const renderDressCode = () => (
                 Unity in Celebration
               </h4>
               <p className="text-[#2b4a84] font-medium">
-                While uniforms are encouraged, they are not mandatory. We celebrate the beauty of our cultural heritage in all its forms.
+                While materials are encouraged, they are not mandatory. We celebrate the beauty of our cultural heritage in all its forms.
               </p>
             </div>
           </div>
