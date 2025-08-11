@@ -154,21 +154,21 @@ const renderHome = () => (
               <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
                 <div className="text-center">
                   <h2 className="text-2xl md:text-3xl font-light text-[var(--elegant-brown-dark)] tracking-wider mb-2">
-                    La Dot
+                    Traditional Wedding
                   </h2>
                   <div className="w-16 h-px bg-[var(--elegant-gold)] mx-auto"></div>
                 </div>
                 <div className="hidden md:block w-px h-16 bg-[var(--elegant-gold)]"></div>
                 <div className="text-center">
                   <h2 className="text-2xl md:text-3xl font-light text-[var(--elegant-brown-dark)] tracking-wider mb-2">
-                    Roora
+                    La Dot
                   </h2>
                   <div className="w-16 h-px bg-[var(--elegant-gold)] mx-auto"></div>
                 </div>
               </div>
               
               <p className="text-lg text-[var(--elegant-brown)] font-light max-w-2xl mx-auto leading-relaxed">
-                A traditional wedding ceremony celebrating the union of two families
+                A beautiful union of cultures and traditions
               </p>
             </div>
           </div>
@@ -738,7 +738,7 @@ const renderDressCode = () => (
           
           <div className="text-center african-glass p-4 rounded-xl border-2 border-[#d4a574]">
             <h4 className="font-bold text-[#2a4b39] mb-2 african-text-shadow">Payment Reference</h4>
-            <p className="text-[#d4a574] font-medium">Reference: Your Name - Family (Mawoko/Sitanimezi)</span></p>
+            <p className="text-[#d4a574] font-medium">Reference: Your Name - Family (Mawoko/Sitanimezi)</p>
           </div>
         </CardContent>
       </Card>
