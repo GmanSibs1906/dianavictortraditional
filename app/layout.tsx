@@ -5,7 +5,7 @@ import '../styles/globals.css'
 
 export const metadata: Metadata = {
   title: 'Diana & Victor',
-  description: 'Created by Ctr+Cde',
+  description: 'Diana & Victor La Dot | Malobolo Invite',
   generator: 'Ctr+Cde',
 }
 
