@@ -161,7 +161,7 @@ const renderHome = () => (
                 <div className="hidden md:block w-px h-16 bg-[var(--elegant-gold)]"></div>
                 <div className="text-center">
                   <h2 className="text-2xl md:text-3xl font-light text-[var(--elegant-brown-dark)] tracking-wider mb-2">
-                    Roora
+                  Malobolo
                   </h2>
                   <div className="w-16 h-px bg-[var(--elegant-gold)] mx-auto"></div>
         </div>
@@ -190,8 +190,9 @@ const renderHome = () => (
                   <MapPin className="h-8 w-8 text-[var(--elegant-gold)]" />
           </div>
                 <h3 className="text-xl font-light text-[var(--elegant-brown-dark)] tracking-wide">Location</h3>
-                <p className="text-2xl font-light text-[var(--elegant-gold)]">Casa Social De Madeira</p>
-                <p className="text-base text-[var(--elegant-brown)] font-light">Pretoria, South Africa</p>
+                <a href="https://maps.app.goo.gl/ycymZbvMzYfXh5FBA" className="text-2xl  font-light text-[var(--elegant-gold)"><span className='text-[var(--elegant-gold)'>Casa Social De Madeira</span></a>
+                {/* <p className="text-2xl font-light text-[var(--elegant-gold)]">Casa Social De Madeira</p> */}
+                <p className=" mt-[15px] text-base text-[var(--elegant-brown)] font-light">Pretoria, South Africa</p>
           </div>
         </div>
       </div>
@@ -241,12 +242,12 @@ const renderHome = () => (
             
             <div className="prose prose-lg max-w-none">
               <p className="text-[var(--elegant-brown-dark)] leading-relaxed font-light text-lg text-center italic">
-                It began at the Parish of Maria Regina—<br />
+                It began at the Parish of Maria Regina,<br />
                 not within the church walls,<br />
                 but in the gentle quiet of the Parish home,<br />
                 where Diana's late cousin, Fr. Muhau (rest in peace),<br />
                 served with kindness and grace.<br />
-                There, Victor and Diana first met—<br />
+                There, Victor and Diana first met,<br />
                 two souls crossing paths<br />
                 under ordinary skies,<br />
                 unaware of the love that time would weave.
@@ -257,7 +258,7 @@ const renderHome = () => (
               </div>
               
               <p className="text-[var(--elegant-brown-dark)] leading-relaxed font-light text-lg text-center italic">
-                Friendship came first—<br />
+                Friendship came first,<br />
                 patient, steady,<br />
                 filled with easy laughter and long conversations,<br />
                 growing quietly in the backdrop of busy days.<br />
@@ -271,7 +272,7 @@ const renderHome = () => (
               </div>
               
               <p className="text-[var(--elegant-brown-dark)] leading-relaxed font-light text-lg text-center italic">
-                And then came the puppy—<br />
+                And then came the puppy,<br />
                 a thoughtful gift from Victor to Diana,<br />
                 knowing her deep love for animals.<br />
                 A mischievous little heartbeat,<br />
@@ -330,12 +331,12 @@ const renderHome = () => (
 
     <section className="py-20 bg-[var(--elegant-white)] relative overflow-hidden">
       <div className="container mx-auto px-4 max-w-4xl relative z-10">
-        <div className="text-center mb-16 pattern-animation">
-          <h2 className="font-serif text-4xl md:text-5xl text-[var(--elegant-gold)] mb-4 gold-text-shadow">Wedding Details</h2>
+        <div className="text-center pattern-animation">
+          {/* <h2 className="font-serif text-4xl md:text-5xl text-[var(--elegant-gold)] mb-4 gold-text-shadow">Wedding Details</h2> */}
           <p className="text-xl text-[var(--elegant-brown-dark)] font-medium">Join us for a celebration of love and unity</p>
         </div>
         
-        <div className="mb-12">
+        {/* <div className="mb-12">
           <Card className="border-2 border-[var(--elegant-gold)] shadow-2xl elegant-glass-gold transform hover:scale-105 transition-all duration-300 max-w-5xl mx-auto">
             <CardContent className="pt-8 space-y-6 bg-[var(--elegant-white)] bg-opacity-95">
               <div className="flex items-start justify-center space-x-4">
@@ -348,7 +349,7 @@ const renderHome = () => (
               </div>
             </CardContent>
           </Card>
-        </div>
+        </div> */}
         
         {/* <Card className="border-2 border-orange-100 shadow-lg">
           <CardHeader className="bg-orange-50">
@@ -586,7 +587,7 @@ const renderDressCode = () => (
               <div className="text-center mb-12 pattern-animation">
           <h2 className="font-serif text-4xl md:text-5xl text-[var(--elegant-gold)] mb-4 gold-text-shadow">Attire</h2>
           <p className="text-xl text-[var(--elegant-brown-dark)] font-medium mb-6">
-            Celebrating our heritage with elegance and unity
+          Traditional Luxe
           </p>
           <div className="elegant-glass p-6 rounded-2xl max-w-4xl mx-auto">
             <p className="text-lg text-[var(--elegant-brown-dark)] font-medium leading-relaxed">
@@ -598,7 +599,7 @@ const renderDressCode = () => (
       {/* Material Information */}
       <div className="mb-12">
         <div className="text-center elegant-glass p-8 rounded-2xl max-w-4xl mx-auto border-2 border-[var(--elegant-gold)]">
-          <h3 className="font-serif text-2xl text-[var(--elegant-gold)] mb-6 gold-text-shadow">Traditional Material - R200 Each</h3>
+          <h3 className="font-serif text-2xl text-[var(--elegant-gold)] mb-6 gold-text-shadow">Traditional Material - R200 (6 yards) Each</h3>
           <p className="text-lg text-[var(--elegant-brown-dark)] font-medium leading-relaxed mb-4">
             Each family will be represented through their distinctive traditional colours and patterns, creating a beautiful celebration of our combined heritage.
           </p>
