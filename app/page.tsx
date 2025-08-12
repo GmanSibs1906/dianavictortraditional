@@ -28,39 +28,39 @@ const renderNavigation = () => (
               height={40}
               className="object-contain"
             />
-          </div>
+        </div>
           
           <div className="flex items-center space-x-12">
-            {[
-              { id: 'home', label: 'Home' },
-              { id: 'registry', label: 'Registry' },
-              { id: 'dresscode', label: 'Dress Code' }
-            ].map(item => (
-              <button
-                key={item.id}
-                onClick={() => setActiveSection(item.id)}
+          {[
+            { id: 'home', label: 'Home' },
+            { id: 'registry', label: 'Registry' },
+            { id: 'dresscode', label: 'Dress Code' }
+          ].map(item => (
+            <button
+              key={item.id}
+              onClick={() => setActiveSection(item.id)}
                 className={`font-light text-base tracking-wide transition-all duration-300 relative ${
-                  activeSection === item.id 
+                activeSection === item.id 
                     ? 'text-[var(--elegant-gold)]' 
                     : 'text-[var(--elegant-brown-dark)] hover:text-[var(--elegant-gold)]'
-                }`}
-              >
-                {item.label}
+              }`}
+            >
+              {item.label}
                 {activeSection === item.id && (
                   <div className="absolute -bottom-1 left-0 right-0 h-px bg-[var(--elegant-gold)]"></div>
                 )}
-              </button>
-            ))}
+            </button>
+          ))}
           </div>
           
           <div>
-            <Button
-              onClick={() => window.open('https://tally.so/r/nPqb7V', '_blank')}
+          <Button
+            onClick={() => window.open('https://tally.so/r/nPqb7V', '_blank')}
               className="bg-[var(--elegant-gold)] hover:bg-[var(--elegant-gold-dark)] text-white px-8 py-3 text-sm font-medium tracking-wide transition-all duration-300 border-0 rounded-none"
-            >
-              RSVP
-            </Button>
-          </div>
+          >
+            RSVP
+          </Button>
+        </div>
         </div>
       </div>
     </nav>
@@ -81,37 +81,37 @@ const renderNavigation = () => (
     {/* Mobile Navigation Tabs - Fixed at bottom */}
     <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-[var(--elegant-border)] z-50">
       <div className="grid grid-cols-4 h-16">
-        {[
+              {[
           { id: 'home', label: 'Home' },
           { id: 'registry', label: 'Registry' },
           { id: 'dresscode', label: 'Dress' }
         ].map((item) => (
-          <button
-            key={item.id}
+                  <button
+                    key={item.id}
             onClick={() => setActiveSection(item.id)}
             className={`flex flex-col items-center justify-center space-y-1 transition-all duration-300 ${
-              activeSection === item.id 
+                      activeSection === item.id 
                 ? 'text-[var(--elegant-gold)] bg-[var(--elegant-gold)]/5' 
                 : 'text-[var(--elegant-brown-dark)] hover:text-[var(--elegant-gold)] hover:bg-[var(--elegant-gold)]/5'
-            }`}
-          >
+                    }`}
+                  >
             <div className={`w-1 h-1 rounded-full transition-all duration-300 ${
               activeSection === item.id ? 'bg-[var(--elegant-gold)]' : 'bg-transparent'
             }`}></div>
             <span className="text-xs font-medium tracking-wide">{item.label}</span>
-          </button>
+                  </button>
         ))}
-        
+              
         {/* RSVP Button */}
         <button
           onClick={() => window.open('https://tally.so/r/nPqb7V', '_blank')}
           className="flex flex-col items-center justify-center bg-[var(--elegant-gold)] text-white transition-all duration-300 hover:bg-[var(--elegant-gold-dark)]"
-        >
+                >
           <div className="w-1 h-1 rounded-full bg-white/50"></div>
           <span className="text-xs font-medium tracking-wide">RSVP</span>
         </button>
-      </div>
-    </div>
+                  </div>
+              </div>
   </>
 )
 
@@ -133,81 +133,81 @@ const renderHome = () => (
           {/* Hero Logo Section */}
           <div className="text-center mb-16">
             <div className="inline-block mb-8">
-              <Image
+            <Image
                 src="/logo.png"
                 alt="Diana & Victor"
                 width={300}
                 height={150}
                 className="object-contain mx-auto"
               />
-            </div>
-            
+      </div>
+      
             {/* Elegant Divider */}
             <div className="flex items-center justify-center mb-8">
               <div className="h-px bg-[var(--elegant-gold)] w-24"></div>
               <div className="mx-4 w-2 h-2 bg-[var(--elegant-gold)] rounded-full"></div>
               <div className="h-px bg-[var(--elegant-gold)] w-24"></div>
-            </div>
-            
+      </div>
+      
             {/* Event Details */}
             <div className="space-y-6">
               <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
                 <div className="text-center">
                   <h2 className="text-2xl md:text-3xl font-light text-[var(--elegant-brown-dark)] tracking-wider mb-2">
-                    Traditional Wedding
-                  </h2>
-                  <div className="w-16 h-px bg-[var(--elegant-gold)] mx-auto"></div>
-                </div>
-                <div className="hidden md:block w-px h-16 bg-[var(--elegant-gold)]"></div>
-                <div className="text-center">
-                  <h2 className="text-2xl md:text-3xl font-light text-[var(--elegant-brown-dark)] tracking-wider mb-2">
                     La Dot
                   </h2>
                   <div className="w-16 h-px bg-[var(--elegant-gold)] mx-auto"></div>
-                </div>
-              </div>
-              
-              <p className="text-lg text-[var(--elegant-brown)] font-light max-w-2xl mx-auto leading-relaxed">
-                A beautiful union of cultures and traditions
-              </p>
-            </div>
           </div>
-          
+                <div className="hidden md:block w-px h-16 bg-[var(--elegant-gold)]"></div>
+                <div className="text-center">
+                  <h2 className="text-2xl md:text-3xl font-light text-[var(--elegant-brown-dark)] tracking-wider mb-2">
+                    Roora
+                  </h2>
+                  <div className="w-16 h-px bg-[var(--elegant-gold)] mx-auto"></div>
+        </div>
+      </div>
+      
+              <p className="text-lg text-[var(--elegant-brown)] font-light max-w-2xl mx-auto leading-relaxed">
+                A beautiful traditional wedding celebrating the union of cultures and traditions
+              </p>
+        </div>
+      </div>
+      
           {/* Date and Location */}
           <div className="bg-white/60 backdrop-blur-sm border border-[var(--elegant-border)] rounded-none p-12 mb-16 max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 text-center">
               <div className="space-y-4">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-[var(--elegant-gold)]/10 rounded-full mb-4">
                   <Calendar className="h-8 w-8 text-[var(--elegant-gold)]" />
-                </div>
+          </div>
                 <h3 className="text-xl font-light text-[var(--elegant-brown-dark)] tracking-wide">Date</h3>
                 <p className="text-2xl font-light text-[var(--elegant-gold)]">November 29th, 2025</p>
                 <p className="text-base text-[var(--elegant-brown)] font-light">4:00 PM - 12:00 AM</p>
-              </div>
-              
+      </div>
+      
               <div className="space-y-4">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-[var(--elegant-gold)]/10 rounded-full mb-4">
                   <MapPin className="h-8 w-8 text-[var(--elegant-gold)]" />
-                </div>
+          </div>
                 <h3 className="text-xl font-light text-[var(--elegant-brown-dark)] tracking-wide">Location</h3>
                 <p className="text-2xl font-light text-[var(--elegant-gold)]">Casa Social De Madeira</p>
                 <p className="text-base text-[var(--elegant-brown)] font-light">Pretoria, South Africa</p>
-              </div>
-            </div>
           </div>
-          
+        </div>
+      </div>
+      
           {/* Invitation Message */}
           <div className="text-center max-w-3xl mx-auto mb-16">
             <p className="text-xl md:text-2xl font-light text-[var(--elegant-brown-dark)] leading-relaxed mb-8">
               You are cordially invited to join us in celebrating our traditional wedding, a magnificent union where two cultures and worlds unite as one. It will be our great honor and joy to share this extraordinary day with you as we embark on our beautiful journey together.
-            </p>
+          </p>
             
-            <Button 
-              onClick={() => window.open('https://tally.so/r/nPqb7V', '_blank')}
+          <Button 
+            onClick={() => window.open('https://tally.so/r/nPqb7V', '_blank')}
               className="bg-[var(--elegant-gold)] hover:bg-[var(--elegant-gold-dark)] text-white px-12 py-4 text-lg font-light tracking-wider transition-all duration-300 border-0 rounded-none min-w-[200px]"
-            >
+          >
               RSVP 
-            </Button>
+          </Button>
           </div>
           
         </div>
@@ -233,48 +233,64 @@ const renderHome = () => (
               className="rounded-2xl shadow-2xl"
             />
           </div>
-          <div className="space-y-6">
-            <Card className="border-2 border-[var(--elegant-gold)] shadow-2xl elegant-glass-gold transform hover:scale-105 transition-all duration-300">
-              <CardHeader className="elegant-gradient-gold">
-                <CardTitle className="flex items-center space-x-2 text-[var(--elegant-brown-dark)]">
-                  <Heart className="h-5 w-5 text-[var(--elegant-gold-dark)] float-animation" />
-                  <span className="elegant-text-shadow">How We Met</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="bg-[var(--elegant-white)] bg-opacity-95">
-                <p className="text-[var(--elegant-brown-dark)] leading-relaxed font-medium">
-It all began at the Parish of Maria Regina, not inside the church, but in the quiet familiarity of the parish home, where Diana's late cousin was serving as a priest (Rest in Peace Fr. Muhau). That is where Victor and Diana first crossed paths. There were no grand declarations or instant sparks, just two people meeting under ordinary circumstances, unaware that life had something in store for them.
-                </p>
-              </CardContent>
-            </Card>
+          <div className="elegant-glass p-8 rounded-2xl border-2 border-[var(--elegant-gold)] shadow-2xl">
+            <div className="text-center mb-6">
+              <Heart className="h-8 w-8 text-[var(--elegant-gold)] mx-auto float-animation mb-4" />
+              <h3 className="font-serif text-2xl text-[var(--elegant-gold)] gold-text-shadow">Our Love Story</h3>
+            </div>
             
-            <Card className="border-2 border-[var(--elegant-brown)] shadow-2xl elegant-glass-brown transform hover:scale-105 transition-all duration-300">
-              <CardHeader className="elegant-gradient-brown">
-                <CardTitle className="flex items-center space-x-2 text-[var(--elegant-cream)]">
-                  <Heart className="h-5 w-5 text-[var(--elegant-gold)] float-animation" />
-                  <span className="elegant-text-shadow">From Friends to Forever</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="bg-[var(--elegant-white)] bg-opacity-95">
-                <p className="text-[var(--elegant-brown-dark)] leading-relaxed font-medium">
-In the years that followed, they became friends. The kind of friends who laugh easily, talk often, and genuinely enjoy each other's company. Their friendship was patient and steady, growing quietly in the background of their busy lives. But time has a way of revealing what is meant to be. What started as friendship slowly deepened into something more.
+            <div className="prose prose-lg max-w-none">
+              <p className="text-[var(--elegant-brown-dark)] leading-relaxed font-light text-lg text-center italic">
+                It began at the Parish of Maria Regina—<br />
+                not within the church walls,<br />
+                but in the gentle quiet of the Parish home,<br />
+                where Diana's late cousin, Fr. Muhau (rest in peace),<br />
+                served with kindness and grace.<br />
+                There, Victor and Diana first met—<br />
+                two souls crossing paths<br />
+                under ordinary skies,<br />
+                unaware of the love that time would weave.
                 </p>
-              </CardContent>
-            </Card>
+              
+              <div className="flex justify-center my-6">
+                <div className="h-px bg-[var(--elegant-gold)] w-32"></div>
+              </div>
+              
+              <p className="text-[var(--elegant-brown-dark)] leading-relaxed font-light text-lg text-center italic">
+                Friendship came first—<br />
+                patient, steady,<br />
+                filled with easy laughter and long conversations,<br />
+                growing quietly in the backdrop of busy days.<br />
+                Then, slowly, it changed.<br />
+                What was friendship turned into something deeper,<br />
+                something lasting.
+              </p>
 
-            <Card className="border-2 border-[var(--elegant-gold)] shadow-2xl elegant-glass transform hover:scale-105 transition-all duration-300">
-              <CardHeader className="elegant-gradient-cream">
-                <CardTitle className="flex items-center space-x-2 text-[var(--elegant-brown-dark)]">
-                  <Sparkles className="h-5 w-5 text-[var(--elegant-gold)] float-animation" />
-                  <span className="elegant-text-shadow">The Puppy That Stole Hearts</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="bg-[var(--elegant-white)] bg-opacity-95">
-                <p className="text-[var(--elegant-brown-dark)] leading-relaxed font-medium">
-                 And then, there was the puppy. Victor, knowing Diana's love for dogs, surprised her with a mischievous little one. That pup brought chaos and laughter into the house and quickly became a beloved member of the family. Just like Victor did. Their story has always been about love built on friendship, understanding, and shared joy.
+              <div className="flex justify-center my-6">
+                <div className="h-px bg-[var(--elegant-gold)] w-32"></div>
+              </div>
+              
+              <p className="text-[var(--elegant-brown-dark)] leading-relaxed font-light text-lg text-center italic">
+                And then came the puppy—<br />
+                a thoughtful gift from Victor to Diana,<br />
+                knowing her deep love for animals.<br />
+                A mischievous little heartbeat,<br />
+                bringing chaos, warmth,<br />
+                and joy that wove their hearts closer,<br />
+                while gently testing the limits of their patience.
+              </p>
+              
+              <div className="flex justify-center my-6">
+                <Sparkles className="h-6 w-6 text-[var(--elegant-gold)] animate-pulse" />
+              </div>
+              
+              <p className="text-[var(--elegant-gold-dark)] leading-relaxed font-medium text-xl text-center">
+                Theirs is a love built on friendship,<br />
+                rooted in understanding,<br />
+                and blooming with shared joy.<br />
+                <span className="text-[var(--elegant-gold)] font-semibold">A love that was always meant to be.</span>
                 </p>
-              </CardContent>
-            </Card>
+            </div>
           </div>
         </div>
         
@@ -321,28 +337,13 @@ In the years that followed, they became friends. The kind of friends who laugh e
         
         <div className="mb-12">
           <Card className="border-2 border-[var(--elegant-gold)] shadow-2xl elegant-glass-gold transform hover:scale-105 transition-all duration-300 max-w-5xl mx-auto">
-            <CardHeader className="elegant-gradient-gold">
-              <CardTitle className="flex items-center justify-center space-x-3 text-[var(--elegant-brown-dark)]">
-                <MapPin className="h-8 w-8 float-animation" />
-                <span className="elegant-text-shadow text-3xl">Venue</span>
-              </CardTitle>
-            </CardHeader>
             <CardContent className="pt-8 space-y-6 bg-[var(--elegant-white)] bg-opacity-95">
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="flex items-center space-x-4">
-                  <Clock className="h-8 w-8 text-[var(--elegant-gold)] flex-shrink-0" />
-                <div>
-                    <p className="font-bold text-[var(--elegant-brown-dark)] text-xl">Saturday, November 29, 2025</p>
-                    <p className="text-[var(--elegant-brown-dark)] font-medium text-lg">16:00 - 00:00</p>
-              </div>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <Calendar className="h-8 w-8 text-[var(--elegant-gold)] mt-1 flex-shrink-0" />
-                <div>
-                    <a href="https://maps.app.goo.gl/ycymZbvMzYfXh5FBA" className="font-semibold text-[var(--elegant-gold)] hover:text-[var(--elegant-gold-dark)] transition-colors">Casa Social De Madeira</a>
-                    <p className="text-[var(--elegant-brown-dark)] font-medium text-lg">34 Boschkop Rd, Zwavelpoort</p>
-                    <p className="text-base text-[var(--elegant-brown)] italic mt-2">A beautiful ceremony surrounded by family and friends</p>
-              </div>
+              <div className="flex items-start justify-center space-x-4">
+                <MapPin className="h-8 w-8 text-[var(--elegant-gold)] mt-1 flex-shrink-0" />
+                <div className="text-center">
+                  <a href="https://maps.app.goo.gl/ycymZbvMzYfXh5FBA" className="font-semibold text-[var(--elegant-gold)] hover:text-[var(--elegant-gold-dark)] transition-colors text-2xl">Casa Social De Madeira</a>
+                  <p className="text-[var(--elegant-brown-dark)] font-medium text-lg">34 Boschkop Rd, Zwavelpoort</p>
+                  <p className="text-base text-[var(--elegant-brown)] italic mt-2">We can't wait to celebrate with you!</p>
                 </div>
               </div>
             </CardContent>
@@ -582,84 +583,28 @@ const renderRegistry = () => (
 const renderDressCode = () => (
   <section className="py-20 bg-[var(--elegant-white)] relative overflow-hidden">
     <div className="container mx-auto px-4 max-w-6xl relative z-10">
-      <div className="text-center mb-12 pattern-animation">
-        <h2 className="font-serif text-4xl md:text-5xl text-[var(--elegant-gold)] mb-4 gold-text-shadow">Dress Code</h2>
-        <p className="text-xl text-[var(--elegant-brown-dark)] font-medium mb-6">
-          Celebrating our heritage with elegance and unity
-        </p>
-        <div className="elegant-glass p-6 rounded-2xl max-w-4xl mx-auto">
-          <p className="text-lg text-[var(--elegant-brown-dark)] font-medium leading-relaxed">
-            Uniforms are available for purchase based on who invited you - either the <span className="font-bold text-[var(--elegant-brown)]">Mawoko's (Green and Red)</span> or the <span className="font-bold text-[var(--elegant-gold-dark)]">Sitanimezi's (Navy Blue)</span>. While wearing a uniform is not mandatory, it is warmly encouraged to help us celebrate in unity.
+              <div className="text-center mb-12 pattern-animation">
+          <h2 className="font-serif text-4xl md:text-5xl text-[var(--elegant-gold)] mb-4 gold-text-shadow">Attire</h2>
+          <p className="text-xl text-[var(--elegant-brown-dark)] font-medium mb-6">
+            Celebrating our heritage with elegance and unity
           </p>
+          <div className="elegant-glass p-6 rounded-2xl max-w-4xl mx-auto">
+            <p className="text-lg text-[var(--elegant-brown-dark)] font-medium leading-relaxed">
+              The joining of two families will be honoured and celebrated according to tradition, with each family represented by distinctive colours and patterns. The fabric is available from our supplier. Please contact <span className="font-bold text-[var(--elegant-gold-dark)]">+27 79 246 8279</span> or <span className="font-bold text-[var(--elegant-gold-dark)]">weddingdianavictor@gmail.com</span> to reserve your material.
+            </p>
+          </div>
         </div>
-      </div>
       
-      {/* Uniform Options */}
+      {/* Material Information */}
       <div className="mb-12">
-        <h3 className="font-serif text-2xl text-[#2a4b39] mb-8 text-center african-text-shadow">Uniform Options - R200 Each</h3>
-      <div className="grid md:grid-cols-2 gap-8 mb-12">
-          
-          {/* Mawoko Family Uniform */}
-          <Card className="border-2 border-[#3d6852] shadow-2xl african-glass-green transform hover:scale-105 transition-all duration-300 hover:rotate-1">
-            <CardHeader className="african-gradient-green text-center">
-              <CardTitle className="flex items-center justify-center space-x-2 text-[#f8f5f0]">
-                <Users className="h-6 w-6 float-animation" />
-                <span className="african-text-shadow text-xl">Mawoko Family</span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="pt-6 space-y-4 bg-[#f8f5f0] bg-opacity-95 text-center">
-              <div className="relative h-64 mb-4">
-                <Image
-                  src="/images/green.jpeg"
-                  alt="Mawoko Family Uniform - Green and Red"
-                  fill
-                  className="object-cover rounded-xl shadow-lg"
-                />
-              </div>
-              <h4 className="font-bold text-[#2a4b39] text-lg">Green & Red Uniform</h4>
-              <p className="text-[#3d6852] font-medium">
-                Beautiful traditional design featuring rich green and red colors representing the Mawoko heritage.
-              </p>
-              <div className="flex justify-center space-x-4 mt-4">
-                <div className="w-8 h-8 bg-[#3d6852] rounded-full border-2 border-white shadow-lg"></div>
-                <div className="w-8 h-8 bg-[#c4403e] rounded-full border-2 border-white shadow-lg"></div>
-              </div>
-              <div className="african-glass p-3 rounded-lg border border-[#3d6852]">
-                <p className="text-[#2a4b39] font-bold text-lg">R200</p>
-              </div>
-            </CardContent>
-          </Card>
-          
-          {/* Sitanimezi Family Uniform */}
-          <Card className="border-2 border-[#2b4a84] shadow-2xl african-glass transform hover:scale-105 transition-all duration-300 hover:rotate-1" style={{backgroundColor: 'rgba(43, 74, 132, 0.1)'}}>
-            <CardHeader className="text-center" style={{background: 'linear-gradient(135deg, #2b4a84, #4a6fa5)'}}>
-              <CardTitle className="flex items-center justify-center space-x-2 text-white">
-                <Users className="h-6 w-6 float-animation" />
-                <span className="african-text-shadow text-xl">Sitanimezi Family</span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="pt-6 space-y-4 bg-[#f8f5f0] bg-opacity-95 text-center">
-              <div className="relative h-64 mb-4">
-                <Image
-                  src="/images/blue.jpg"
-                  alt="Sitanimezi Family Uniform - Navy Blue"
-                  fill
-                  className="object-cover rounded-xl shadow-lg"
-                />
-                </div>
-              <h4 className="font-bold text-[#2a4b39] text-lg">Navy Blue Uniform</h4>
-              <p className="text-[#2b4a84] font-medium">
-                Elegant navy blue traditional design representing the distinguished Sitanimezi family heritage.
-              </p>
-              <div className="flex justify-center space-x-4 mt-4">
-                <div className="w-8 h-8 bg-[#2b4a84] rounded-full border-2 border-white shadow-lg"></div>
-                <div className="w-8 h-8 bg-[#4a6fa5] rounded-full border-2 border-white shadow-lg"></div>
-                </div>
-              <div className="african-glass p-3 rounded-lg border border-[#2b4a84]">
-                <p className="text-[#2a4b39] font-bold text-lg">R200</p>
-              </div>
-            </CardContent>
-          </Card>
+        <div className="text-center elegant-glass p-8 rounded-2xl max-w-4xl mx-auto border-2 border-[var(--elegant-gold)]">
+          <h3 className="font-serif text-2xl text-[var(--elegant-gold)] mb-6 gold-text-shadow">Traditional Material - R200 Each</h3>
+          <p className="text-lg text-[var(--elegant-brown-dark)] font-medium leading-relaxed mb-4">
+            Each family will be represented through their distinctive traditional colours and patterns, creating a beautiful celebration of our combined heritage.
+          </p>
+          <p className="text-base text-[var(--elegant-brown)] font-medium">
+            Material is available for purchase to honour this special tradition and create unity in our celebration.
+          </p>
         </div>
       </div>
       
@@ -740,14 +685,18 @@ const renderDressCode = () => (
             <h4 className="font-bold text-[#2a4b39] mb-2 african-text-shadow">Payment Reference</h4>
             <p className="text-[#d4a574] font-medium">Reference: Your Name - Family (Mawoko/Sitanimezi)</p>
           </div>
+          <div className="text-center african-glass p-4 rounded-xl border-2 border-[#d4a574]">
+            <h4 className="font-bold text-[#2a4b39] mb-2 african-text-shadow">Delivery Process</h4>
+              <p className="text-[#d4a574] font-medium">Once payment and RSVP are confirmed, the material will be delivered accordingly. Please ensure you send us your contact details.</p>
+            </div>
         </CardContent>
       </Card>
 
       {/* Important Notes */}
-      <Card className="border-2 border-[#2b4a84] shadow-2xl african-glass">
+      {/* <Card className="border-2 border-[#2b4a84] shadow-2xl african-glass">
         <CardContent className="text-center p-8">
           <h3 className="font-bold text-xl text-[#2a4b39] mb-6 african-text-shadow">Important Information</h3>
-          <div className="grid md:grid-cols-2 gap-8 text-left">
+          <div className="grid md:grid-cols-1 gap-8 text-left">
             <div className="african-glass p-4 rounded-lg border border-[#3d6852]">
               <h4 className="font-bold text-[#2a4b39] mb-3 flex items-center">
                 <Clock className="h-5 w-5 mr-2 text-[#c4403e]" />
@@ -756,8 +705,8 @@ const renderDressCode = () => (
               <p className="text-[#3d6852] font-medium">
                 Once payment and RSVP are confirmed, the material will be delivered accordingly. Please ensure you send us your contact details.
               </p>
-            </div>
-            <div className="african-glass p-4 rounded-lg border border-[#2b4a84]">
+            </div> */}
+            {/* <div className="african-glass p-4 rounded-lg border border-[#2b4a84]">
               <h4 className="font-bold text-[#2a4b39] mb-3 flex items-center">
                 <Heart className="h-5 w-5 mr-2 text-[#c4403e]" />
                 Unity in Celebration
@@ -765,18 +714,18 @@ const renderDressCode = () => (
               <p className="text-[#2b4a84] font-medium">
                 While materials are encouraged, they are not mandatory. We celebrate the beauty of our cultural heritage in all its forms.
               </p>
-            </div>
-          </div>
+            </div> */}
+          {/* </div> */}
           
-          <div className="mt-8 african-glass p-6 rounded-xl border-2 border-[#d4a574]">
+          {/* <div className="mt-8 african-glass p-6 rounded-xl border-2 border-[#d4a574]">
             <p className="text-[#2a4b39] font-medium text-lg">
               For uniform sizing, delivery questions, or other inquiries, please contact us at 
               <span className="text-[#c4403e] font-bold"> +27 79 246 8279</span> or 
               <span className="text-[#c4403e] font-bold"> weddingdianavictor@gmail.com</span>
             </p>
-          </div>
-        </CardContent>
-      </Card>
+          </div> */}
+        {/* </CardContent>
+      </Card> */}
       
       {/* Creative Image14 - Part of Content */}
       <div className="flex justify-center mt-12">
