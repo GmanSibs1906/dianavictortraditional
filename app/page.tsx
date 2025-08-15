@@ -10,7 +10,7 @@ import { Heart, MapPin, Calendar, Clock, Gift, Users, Sparkles, Camera, Music, C
 
 export default function WeddingWebsite() {
 const [activeSection, setActiveSection] = useState('home')
-const [isLoveStoryExpanded, setIsLoveStoryExpanded] = useState(false)
+const [isStoryExpanded, setIsStoryExpanded] = useState(false)
 
 
 
@@ -225,93 +225,174 @@ const renderHome = () => (
           </p>
         </div>
         
-        <div className="text-center mb-8">
-          <Button
-            onClick={() => setIsLoveStoryExpanded(!isLoveStoryExpanded)}
-            className="bg-transparent hover:bg-[var(--elegant-gold)]/10 text-[var(--elegant-gold)] border-2 border-[var(--elegant-gold)] px-8 py-3 text-lg font-light tracking-wider transition-all duration-300 rounded-none flex items-center space-x-2"
-          >
-            <Heart className="h-5 w-5" />
-            <span>Our Story</span>
-            {isLoveStoryExpanded ? (
-              <ChevronUp className="h-5 w-5" />
-            ) : (
-              <ChevronDown className="h-5 w-5" />
-            )}
-          </Button>
-        </div>
-
-        {isLoveStoryExpanded && (
-          <div className="grid md:grid-cols-2 gap-12 items-center mb-16 animate-in slide-in-from-top-4 duration-500">
-            <div className="relative">
-              <Image
-                src="/images/image0.jpg"
-                alt="Diana and Victor engagement"
-                width={500}
-                height={600}
-                className="rounded-2xl shadow-2xl"
-              />
+        {/* Desktop Version - Always Expanded */}
+        <div className="hidden md:grid md:grid-cols-2 gap-12 items-center mb-16">
+          <div className="relative">
+            <Image
+              src="/images/image0.jpg"
+              alt="Diana and Victor engagement"
+              width={500}
+              height={600}
+              className="rounded-2xl shadow-2xl"
+            />
+          </div>
+          <div className="elegant-glass p-8 rounded-2xl border-2 border-[var(--elegant-gold)] shadow-2xl">
+            <div className="text-center mb-6">
+              <Heart className="h-8 w-8 text-[var(--elegant-gold)] mx-auto float-animation mb-4" />
+              <h3 className="font-serif text-2xl text-[var(--elegant-gold)] gold-text-shadow">Our Love Story</h3>
             </div>
-            <div className="elegant-glass p-8 rounded-2xl border-2 border-[var(--elegant-gold)] shadow-2xl">
-              <div className="text-center mb-6">
-                <Heart className="h-8 w-8 text-[var(--elegant-gold)] mx-auto float-animation mb-4" />
-                <h3 className="font-serif text-2xl text-[var(--elegant-gold)] gold-text-shadow">Our Love Story</h3>
+            
+            <div className="prose prose-lg max-w-none">
+              <p className="text-[var(--elegant-brown-dark)] leading-relaxed font-light text-lg text-center italic">
+                It began at the Parish of Maria Regina,<br />
+                not within the church walls,<br />
+                but in the gentle quiet of the Parish home,<br />
+                where Diana's late cousin, Fr. Muhau (rest in peace),<br />
+                served with kindness and grace.<br />
+                There, Victor and Diana first met,<br />
+                two souls crossing paths<br />
+                under ordinary skies,<br />
+                unaware of the love that time would weave.
+                </p>
+              
+              <div className="flex justify-center my-6">
+                <div className="h-px bg-[var(--elegant-gold)] w-32"></div>
               </div>
               
-              <div className="prose prose-lg max-w-none">
-                <p className="text-[var(--elegant-brown-dark)] leading-relaxed font-light text-lg text-center italic">
-                  It began at the Parish of Maria Regina,<br />
-                  not within the church walls,<br />
-                  but in the gentle quiet of the Parish home,<br />
-                  where Diana's late cousin, Fr. Muhau (rest in peace),<br />
-                  served with kindness and grace.<br />
-                  There, Victor and Diana first met,<br />
-                  two souls crossing paths<br />
-                  under ordinary skies,<br />
-                  unaware of the love that time would weave.
-                  </p>
-                
-                <div className="flex justify-center my-6">
-                  <div className="h-px bg-[var(--elegant-gold)] w-32"></div>
-                </div>
-                
-                <p className="text-[var(--elegant-brown-dark)] leading-relaxed font-light text-lg text-center italic">
-                  Friendship came first,<br />
-                  patient, steady,<br />
-                  filled with easy laughter and long conversations,<br />
-                  growing quietly in the backdrop of busy days.<br />
-                  Then, slowly, it changed.<br />
-                  What was friendship turned into something deeper,<br />
-                  something lasting.
-                </p>
+              <p className="text-[var(--elegant-brown-dark)] leading-relaxed font-light text-lg text-center italic">
+                Friendship came first,<br />
+                patient, steady,<br />
+                filled with easy laughter and long conversations,<br />
+                growing quietly in the backdrop of busy days.<br />
+                Then, slowly, it changed.<br />
+                What was friendship turned into something deeper,<br />
+                something lasting.
+              </p>
 
-                <div className="flex justify-center my-6">
-                  <div className="h-px bg-[var(--elegant-gold)] w-32"></div>
-                </div>
-                
-                <p className="text-[var(--elegant-brown-dark)] leading-relaxed font-light text-lg text-center italic">
-                  And then came the puppy,<br />
-                  a thoughtful gift from Victor to Diana,<br />
-                  knowing her deep love for animals.<br />
-                  A mischievous little heartbeat,<br />
-                  bringing chaos, warmth,<br />
-                  and joy that wove their hearts closer,<br />
-                  while gently testing the limits of their patience.
+              <div className="flex justify-center my-6">
+                <div className="h-px bg-[var(--elegant-gold)] w-32"></div>
+              </div>
+              
+              <p className="text-[var(--elegant-brown-dark)] leading-relaxed font-light text-lg text-center italic">
+                And then came the puppy,<br />
+                a thoughtful gift from Victor to Diana,<br />
+                knowing her deep love for animals.<br />
+                A mischievous little heartbeat,<br />
+                bringing chaos, warmth,<br />
+                and joy that wove their hearts closer,<br />
+                while gently testing the limits of their patience.
+              </p>
+              
+              <div className="flex justify-center my-6">
+                <Sparkles className="h-6 w-6 text-[var(--elegant-gold)] animate-pulse" />
+              </div>
+              
+              <p className="text-[var(--elegant-gold-dark)] leading-relaxed font-medium text-xl text-center">
+                Theirs is a love built on friendship,<br />
+                rooted in understanding,<br />
+                and blooming with shared joy.<br />
+                <span className="text-[var(--elegant-gold)] font-semibold">A love that was always meant to be.</span>
                 </p>
-                
-                <div className="flex justify-center my-6">
-                  <Sparkles className="h-6 w-6 text-[var(--elegant-gold)] animate-pulse" />
-                </div>
-                
-                <p className="text-[var(--elegant-gold-dark)] leading-relaxed font-medium text-xl text-center">
-                  Theirs is a love built on friendship,<br />
-                  rooted in understanding,<br />
-                  and blooming with shared joy.<br />
-                  <span className="text-[var(--elegant-gold)] font-semibold">A love that was always meant to be.</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Version - Collapsible */}
+        <div className="md:hidden mb-16">
+          {/* Image - Always Visible */}
+          <div className="relative mb-8">
+            <Image
+              src="/images/image0.jpg"
+              alt="Diana and Victor engagement"
+              width={500}
+              height={600}
+              className="rounded-2xl shadow-2xl w-full"
+            />
+          </div>
+          
+          {/* Collapsible Story Section */}
+          <div className="elegant-glass rounded-2xl border-2 border-[var(--elegant-gold)] shadow-2xl overflow-hidden">
+            <button
+              onClick={() => setIsStoryExpanded(!isStoryExpanded)}
+              className="w-full p-6 text-center bg-gradient-to-r from-[var(--elegant-gold)]/5 to-[var(--elegant-beige)]/5 hover:from-[var(--elegant-gold)]/10 hover:to-[var(--elegant-beige)]/10 transition-all duration-300"
+            >
+              <div className="flex items-center justify-center space-x-3">
+                <Heart className="h-6 w-6 text-[var(--elegant-gold)] float-animation" />
+                <h3 className="font-serif text-xl text-[var(--elegant-gold)] gold-text-shadow">Our Love Story</h3>
+                {isStoryExpanded ? (
+                  <ChevronUp className="h-5 w-5 text-[var(--elegant-gold)]" />
+                ) : (
+                  <ChevronDown className="h-5 w-5 text-[var(--elegant-gold)]" />
+                )}
+              </div>
+              {!isStoryExpanded && (
+                <p className="text-sm text-[var(--elegant-brown)] mt-2 font-light">
+                  Tap to read our beautiful journey
+                </p>
+              )}
+            </button>
+            
+            {/* Collapsible Content */}
+            <div className={`overflow-hidden transition-all duration-500 ease-in-out ${
+              isStoryExpanded ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
+            }`}>
+              <div className="p-6 pt-0">
+                <div className="prose prose-lg max-w-none">
+                  <p className="text-[var(--elegant-brown-dark)] leading-relaxed font-light text-base text-center italic">
+                    It began at the Parish of Maria Regina,<br />
+                    not within the church walls,<br />
+                    but in the gentle quiet of the Parish home,<br />
+                    where Diana's late cousin, Fr. Muhau (rest in peace),<br />
+                    served with kindness and grace.<br />
+                    There, Victor and Diana first met,<br />
+                    two souls crossing paths<br />
+                    under ordinary skies,<br />
+                    unaware of the love that time would weave.
                   </p>
+                  
+                  <div className="flex justify-center my-4">
+                    <div className="h-px bg-[var(--elegant-gold)] w-24"></div>
+                  </div>
+                  
+                  <p className="text-[var(--elegant-brown-dark)] leading-relaxed font-light text-base text-center italic">
+                    Friendship came first,<br />
+                    patient, steady,<br />
+                    filled with easy laughter and long conversations,<br />
+                    growing quietly in the backdrop of busy days.<br />
+                    Then, slowly, it changed.<br />
+                    What was friendship turned into something deeper,<br />
+                    something lasting.
+                  </p>
+
+                  <div className="flex justify-center my-4">
+                    <div className="h-px bg-[var(--elegant-gold)] w-24"></div>
+                  </div>
+                  
+                  <p className="text-[var(--elegant-brown-dark)] leading-relaxed font-light text-base text-center italic">
+                    And then came the puppy,<br />
+                    a thoughtful gift from Victor to Diana,<br />
+                    knowing her deep love for animals.<br />
+                    A mischievous little heartbeat,<br />
+                    bringing chaos, warmth,<br />
+                    and joy that wove their hearts closer,<br />
+                    while gently testing the limits of their patience.
+                  </p>
+                  
+                  <div className="flex justify-center my-4">
+                    <Sparkles className="h-5 w-5 text-[var(--elegant-gold)] animate-pulse" />
+                  </div>
+                  
+                  <p className="text-[var(--elegant-gold-dark)] leading-relaxed font-medium text-lg text-center">
+                    Theirs is a love built on friendship,<br />
+                    rooted in understanding,<br />
+                    and blooming with shared joy.<br />
+                    <span className="text-[var(--elegant-gold)] font-semibold">A love that was always meant to be.</span>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        )}
+        </div>
         
         {/* <div className="grid md:grid-cols-3 gap-8">
           <Card className="text-center border-2 border-[var(--african-green)] shadow-2xl african-glass-green transform hover:scale-105 transition-all duration-500 hover:rotate-2">
